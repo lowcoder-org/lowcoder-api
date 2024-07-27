@@ -42,7 +42,7 @@
       }
     },
     {
-      "url": "https://api-service.lowcoder.cloud/",
+      "url": "https://api-service.lowcoder.cloud",
       "description": "Lowcoder Community Edition: Public Cloud API Access"
     }
   ],
@@ -4947,7 +4947,7 @@
     },
     "/": {
       "get": {
-        "tags": [],
+        "tags": ["default"],
         "operationId": "index",
         "responses": {
           "200": {
@@ -6536,49 +6536,6 @@
           }
         }
       },
-      "UpdateConfigRequest": {
-        "type": "object",
-        "properties": {
-          "value": {
-            "type": "string"
-          }
-        }
-      },
-      "ResponseViewServerConfig": {
-        "type": "object",
-        "properties": {
-          "code": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "message": {
-            "type": "string"
-          },
-          "data": {
-            "$ref": "#/components/schemas/ServerConfig"
-          },
-          "success": {
-            "type": "boolean"
-          }
-        }
-      },
-      "ServerConfig": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string"
-          },
-          "createdBy": {
-            "type": "string"
-          },
-          "key": {
-            "type": "string"
-          },
-          "value": {
-            "type": "object"
-          }
-        }
-      },
       "CreateApplicationRequest": {
         "type": "object",
         "properties": {
@@ -6609,54 +6566,6 @@
           },
           "folderId": {
             "type": "string"
-          }
-        }
-      },
-      "UploadMaterialRequestDTO": {
-        "type": "object",
-        "properties": {
-          "filename": {
-            "type": "string"
-          },
-          "content": {
-            "type": "string"
-          },
-          "type": {
-            "type": "string",
-            "enum": [
-              "COMMON",
-              "LOGO",
-              "FAVICON"
-            ]
-          }
-        }
-      },
-      "MaterialView": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string"
-          },
-          "filename": {
-            "type": "string"
-          }
-        }
-      },
-      "ResponseViewMaterialView": {
-        "type": "object",
-        "properties": {
-          "code": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "message": {
-            "type": "string"
-          },
-          "data": {
-            "$ref": "#/components/schemas/MaterialView"
-          },
-          "success": {
-            "type": "boolean"
           }
         }
       },
@@ -7955,27 +7864,6 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/JsLibraryMeta"
-            }
-          },
-          "success": {
-            "type": "boolean"
-          }
-        }
-      },
-      "ResponseViewListMaterialView": {
-        "type": "object",
-        "properties": {
-          "code": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "message": {
-            "type": "string"
-          },
-          "data": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/MaterialView"
             }
           },
           "success": {
