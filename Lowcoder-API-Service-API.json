@@ -3,7 +3,16 @@
   "info": {
     "title": "Lowcoder Open Rest API",
     "version": "1.1",
-    "description": ""
+    "description": "The Lowcoder API is a RESTful web service designed to facilitate efficient interaction with the Lowcoder platform. This API allows developers to integrate and interact with various functionalities of the Lowcoder service programmatically.",
+    "termsOfService": "https://lowcoder.cloud/terms",
+    "license": {
+      "name": "MIT"
+    },
+    "contact": {
+      "name": "Lowcoder Software LTD",
+      "email": "service@lowcoder.org",
+      "url": "https://lowcoder.cloud"
+    }
   },
   "servers": [
     {
@@ -39,7 +48,7 @@
   ],
   "security": [
     {
-      "LOWCODER_DEBUG_TOKEN": []
+      "API Key": []
     }
   ],
   "paths": {
@@ -2442,78 +2451,6 @@
         }
       }
     },
-    "/api/configs/{key}": {
-      "get": {
-        "tags": [
-          "Configuration APIs"
-        ],
-        "summary": "Get Configuration for key",
-        "description": "Retrieve a specific Configuration entry within Lowcoder identified by its key and the current Organization / Workspace by the impersonated User.",
-        "operationId": "getConfigurationEntry",
-        "parameters": [
-          {
-            "name": "key",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResponseViewServerConfig"
-                }
-              }
-            }
-          }
-        }
-      },
-      "post": {
-        "tags": [
-          "Configuration APIs"
-        ],
-        "summary": "Create Configuration entry",
-        "description": "Create a new Configuration entry within Lowcoder and the current Organization / Workspace by the impersonated User for managing various settings and configurations. (not available on public cloud)",
-        "operationId": "createConfigurationEntry",
-        "parameters": [
-          {
-            "name": "key",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/UpdateConfigRequest"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResponseViewServerConfig"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
     "/api/applications/{applicationId}/publish": {
       "post": {
         "tags": [
@@ -2603,38 +2540,6 @@
               "*/*": {
                 "schema": {
                   "$ref": "#/components/schemas/ResponseViewApplicationView"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/materials": {
-      "post": {
-        "tags": [
-          "File APIs"
-        ],
-        "summary": "Upload new File",
-        "description": "Upload a new binary File within Lowcoder and the current Organization / Workspace by the impersonated User, allowing users to add small files to their resources.",
-        "operationId": "createFileUpload",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/UploadMaterialRequestDTO"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResponseViewMaterialView"
                 }
               }
             }
@@ -3775,60 +3680,6 @@
         }
       }
     },
-    "/api/configs/deploymentId": {
-      "get": {
-        "tags": [
-          "Configuration APIs"
-        ],
-        "summary": "Get Lowcoder deployment ID",
-        "description": "Retrieve the unique deployment ID for Lowcoder. (not available on public cloud)",
-        "operationId": "getDeploymentId",
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "type": "string"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/configs": {
-      "get": {
-        "tags": [
-          "Configuration APIs"
-        ],
-        "summary": "Get Configurations",
-        "description": "Retrieve a list of configuration entries within Lowcoder based on the current Organization / Workspace by the impersonated User, providing an overview of available configurations.",
-        "operationId": "listConfigs",
-        "parameters": [
-          {
-            "name": "orgId",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResponseViewConfigView_Public"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
     "/api/assets/{id}": {
       "get": {
         "tags": [
@@ -4177,92 +4028,6 @@
               "*/*": {
                 "schema": {
                   "$ref": "#/components/schemas/ResponseViewListJsLibraryMeta"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/materials/{id}": {
-      "get": {
-        "tags": [
-          "File APIs"
-        ],
-        "summary": "Download File contents",
-        "description": "Download the contents of a specific File within Lowcoder using its unique ID.",
-        "operationId": "downloadFile",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "type",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "string",
-              "default": "download"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      },
-      "delete": {
-        "tags": [
-          "File APIs"
-        ],
-        "summary": "Delete uploaded File",
-        "description": "Permanently remove a specific File from Lowcoder using its unique ID.",
-        "operationId": "deleteFile",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResponseViewBoolean"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/materials/list": {
-      "get": {
-        "tags": [
-          "File APIs"
-        ],
-        "summary": "List uploaded Files",
-        "description": "Retrieve a list of uploaded Files within Lowcoder, providing an overview of available files.",
-        "operationId": "listFiles",
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResponseViewListMaterialView"
                 }
               }
             }
@@ -4813,9 +4578,7 @@
     },
     "/": {
       "get": {
-        "tags": [
-          "index-controller"
-        ],
+        "tags": [],
         "operationId": "index",
         "responses": {
           "200": {
@@ -4828,7 +4591,8 @@
               }
             }
           }
-        }
+        },
+        "description": "The Health / Root Endpoint"
       }
     },
     "/api/organizations/{orgId}/remove": {
@@ -5300,6 +5064,9 @@
           "name": {
             "type": "string"
           },
+          "email": {
+            "type": "string"
+          },
           "avatar": {
             "type": "string"
           },
@@ -5609,6 +5376,9 @@
           "id": {
             "type": "string"
           },
+          "gid": {
+            "type": "string"
+          },
           "name": {
             "type": "string"
           },
@@ -5636,6 +5406,9 @@
             "type": "string"
           },
           "createdBy": {
+            "type": "string"
+          },
+          "gid": {
             "type": "string"
           },
           "name": {
@@ -5667,10 +5440,10 @@
               "id": {
                 "type": "string"
               },
-              "datasourceConfigExtraDynamic": {
+              "queryConfigDynamic": {
                 "type": "boolean"
               },
-              "queryConfigDynamic": {
+              "datasourceConfigExtraDynamic": {
                 "type": "boolean"
               },
               "empty": {
@@ -5780,6 +5553,9 @@
             "type": "string",
             "writeOnly": true
           },
+          "gid": {
+            "type": "string"
+          },
           "name": {
             "type": "string"
           },
@@ -5818,9 +5594,6 @@
             "writeOnly": true
           },
           "createdBy": {
-            "type": "string"
-          },
-          "gid": {
             "type": "string"
           },
           "organizationId": {
@@ -5863,6 +5636,9 @@
         "type": "object",
         "properties": {
           "id": {
+            "type": "string"
+          },
+          "gid": {
             "type": "string"
           },
           "name": {
@@ -5933,10 +5709,10 @@
           "libraryQueryRecordId": {
             "type": "string"
           },
-          "usingLiveRecord": {
+          "usingEditingRecord": {
             "type": "boolean"
           },
-          "usingEditingRecord": {
+          "usingLiveRecord": {
             "type": "boolean"
           }
         }
@@ -6174,10 +5950,10 @@
             "type": "integer",
             "format": "int64"
           },
-          "manageable": {
+          "visible": {
             "type": "boolean"
           },
-          "visible": {
+          "manageable": {
             "type": "boolean"
           },
           "folder": {
@@ -6291,6 +6067,9 @@
           "bundleId": {
             "type": "string"
           },
+          "bundleGid": {
+            "type": "string"
+          },
           "name": {
             "type": "string"
           },
@@ -6341,10 +6120,10 @@
             "type": "integer",
             "format": "int64"
           },
-          "manageable": {
+          "visible": {
             "type": "boolean"
           },
-          "visible": {
+          "manageable": {
             "type": "boolean"
           },
           "bundle": {
@@ -6482,27 +6261,27 @@
           "message": {
             "type": "string"
           },
+          "data": {
+            "type": "object"
+          },
+          "headers": {
+            "$ref": "#/components/schemas/JsonNode"
+          },
+          "success": {
+            "type": "boolean"
+          },
           "code": {
             "type": "integer",
             "format": "int32"
           },
-          "success": {
-            "type": "boolean"
+          "queryCode": {
+            "type": "string"
           },
           "hintMessages": {
             "type": "array",
             "items": {
               "type": "string"
             }
-          },
-          "queryCode": {
-            "type": "string"
-          },
-          "headers": {
-            "$ref": "#/components/schemas/JsonNode"
-          },
-          "data": {
-            "type": "object"
           }
         }
       },
@@ -6642,6 +6421,9 @@
           "groupId": {
             "type": "string"
           },
+          "groupGid": {
+            "type": "string"
+          },
           "groupName": {
             "type": "string"
           },
@@ -6658,13 +6440,13 @@
           "dynamicRule": {
             "type": "string"
           },
+          "syncDelete": {
+            "type": "boolean"
+          },
           "devGroup": {
             "type": "boolean"
           },
           "syncGroup": {
-            "type": "boolean"
-          },
-          "syncDelete": {
             "type": "boolean"
           }
         }
@@ -6691,6 +6473,9 @@
         "type": "object",
         "properties": {
           "id": {
+            "type": "string"
+          },
+          "gid": {
             "type": "string"
           },
           "name": {
@@ -6800,6 +6585,9 @@
           "orgId": {
             "type": "string"
           },
+          "gid": {
+            "type": "string"
+          },
           "name": {
             "type": "string"
           },
@@ -6881,6 +6669,9 @@
           "createdBy": {
             "type": "string"
           },
+          "gid": {
+            "type": "string"
+          },
           "organizationId": {
             "type": "string"
           },
@@ -6905,6 +6696,9 @@
         "type": "object",
         "properties": {
           "id": {
+            "type": "string"
+          },
+          "gid": {
             "type": "string"
           },
           "organizationId": {
@@ -7008,6 +6802,9 @@
           "orgId": {
             "type": "string"
           },
+          "gid": {
+            "type": "string"
+          },
           "name": {
             "type": "string"
           },
@@ -7054,6 +6851,9 @@
           "id": {
             "type": "string"
           },
+          "scope": {
+            "type": "string"
+          },
           "authType": {
             "type": "string"
           },
@@ -7094,9 +6894,6 @@
             "type": "string"
           },
           "instanceId": {
-            "type": "string"
-          },
-          "scope": {
             "type": "string"
           },
           "empty": {
@@ -7397,7 +7194,10 @@
       "GroupMemberView": {
         "type": "object",
         "properties": {
-          "avatarUrl": {
+          "groupId": {
+            "type": "string"
+          },
+          "role": {
             "type": "string"
           },
           "userId": {
@@ -7406,17 +7206,14 @@
           "orgId": {
             "type": "string"
           },
+          "avatarUrl": {
+            "type": "string"
+          },
           "joinTime": {
             "type": "integer",
             "format": "int64"
           },
           "userName": {
-            "type": "string"
-          },
-          "groupId": {
-            "type": "string"
-          },
-          "role": {
             "type": "string"
           }
         }
@@ -7664,6 +7461,9 @@
           "createdBy": {
             "type": "string"
           },
+          "gid": {
+            "type": "string"
+          },
           "name": {
             "type": "string"
           },
@@ -7693,10 +7493,10 @@
               "id": {
                 "type": "string"
               },
-              "datasourceConfigExtraDynamic": {
+              "queryConfigDynamic": {
                 "type": "boolean"
               },
-              "queryConfigDynamic": {
+              "datasourceConfigExtraDynamic": {
                 "type": "boolean"
               },
               "empty": {
@@ -8020,6 +7820,9 @@
             "type": "string"
           },
           "name": {
+            "type": "string"
+          },
+          "email": {
             "type": "string"
           },
           "uiLanguage": {
@@ -8406,6 +8209,9 @@
           "bundleId": {
             "type": "string"
           },
+          "bundleGid": {
+            "type": "string"
+          },
           "name": {
             "type": "string"
           },
@@ -8564,5 +8370,10 @@
         "bearerFormat": "JWT"
       }
     }
-  }
+  },
+  "externalDocs": {
+    "url": "https://docs.lowcoder.cloud/lowcoder-documentation/lowcoder-extension/lowcoder-open-rest-api",
+    "description": "Lowcoder Documentation"
+  },
+  "tags": []
 }
