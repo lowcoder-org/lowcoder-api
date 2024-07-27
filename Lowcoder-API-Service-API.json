@@ -575,7 +575,7 @@
         ],
         "summary": "Create a new Application",
         "description": "Create a new Lowcoder Application based on the Organization-ID where the authenticated or impersonated user has access.",
-        "operationId": " createApplication",
+        "operationId": "createApplication",
         "requestBody": {
           "content": {
             "application/json": {
@@ -3710,7 +3710,7 @@
     "/api/users/password": {
       "put": {
         "tags": [
-          "User Password APIs"
+          "User Profile Photo APIs"
         ],
         "summary": "Update User Password",
         "description": "Allow the User to update their Password within Lowcoder, enhancing security and account management.",
@@ -3740,7 +3740,7 @@
       },
       "post": {
         "tags": [
-          "User Password APIs"
+          "User Profile Photo APIs"
         ],
         "summary": "Set User Password",
         "description": "Set a new Password for the User within Lowcoder, ensuring secure access to their account.",
@@ -3927,7 +3927,7 @@
     "/api/users/reset-password": {
       "post": {
         "tags": [
-          "User Password APIs"
+          "User Profile Photo APIs"
         ],
         "summary": "Reset User Password",
         "description": "Initiate a Password Reset process for the user within Lowcoder, allowing them to regain access to their account.",
@@ -3959,7 +3959,7 @@
     "/api/users/reset-lost-password": {
       "post": {
         "tags": [
-          "User Password APIs"
+          "User Profile Photo APIs"
         ],
         "summary": "Reset Lost User Password",
         "description": "Resets lost password based on the token from lost password email.",
@@ -4063,7 +4063,7 @@
     "/api/users/lost-password": {
       "post": {
         "tags": [
-          "User Password APIs"
+          "User Profile Photo APIs"
         ],
         "summary": "Lost User Password",
         "description": "Initiate a Lost Password recovery process.",
@@ -8375,5 +8375,206 @@
     "url": "https://docs.lowcoder.cloud/lowcoder-documentation/lowcoder-extension/lowcoder-open-rest-api",
     "description": "Lowcoder Documentation"
   },
-  "tags": []
+  "tags": [
+    {
+      "name": "Application APIs",
+      "description": "",
+      "externalDocs": {
+        "description": "",
+        "url": ""
+      }
+    },
+    {
+      "name": "Application History APIs",
+      "description": "",
+      "externalDocs": {
+        "description": "",
+        "url": ""
+      }
+    },
+    {
+      "name": "Application Permissions APIs",
+      "description": "",
+      "externalDocs": {
+        "description": "",
+        "url": ""
+      }
+    },
+    {
+      "name": "Bundle APIs",
+      "description": "",
+      "externalDocs": {
+        "description": "",
+        "url": ""
+      }
+    },
+    {
+      "name": "Bundle Permissions APIs",
+      "description": "",
+      "externalDocs": {
+        "description": "",
+        "url": ""
+      }
+    },
+    {
+      "name": "Folder APIs",
+      "description": "",
+      "externalDocs": {
+        "description": "",
+        "url": ""
+      }
+    },
+    {
+      "name": "Folder Permissions APIs",
+      "description": "",
+      "externalDocs": {
+        "description": "",
+        "url": ""
+      }
+    },
+    {
+      "name": "Data Source APIs",
+      "description": "",
+      "externalDocs": {
+        "description": "",
+        "url": ""
+      }
+    },
+    {
+      "name": "Data Source Permissions APIs",
+      "description": "",
+      "externalDocs": {
+        "description": "",
+        "url": ""
+      }
+    },
+    {
+      "name": "Query Execution APIs",
+      "description": "",
+      "externalDocs": {
+        "description": "",
+        "url": ""
+      }
+    },
+    {
+      "name": "Library Queries Record APIs",
+      "description": "",
+      "externalDocs": {
+        "description": "",
+        "url": ""
+      }
+    },
+    {
+      "name": "Organization APIs",
+      "description": "",
+      "externalDocs": {
+        "description": "",
+        "url": ""
+      }
+    },
+    {
+      "name": "Query Library APIs",
+      "description": "",
+      "externalDocs": {
+        "description": "",
+        "url": ""
+      }
+    },
+    {
+      "name": "Organization Member APIs",
+      "description": "",
+      "externalDocs": {
+        "description": "",
+        "url": ""
+      }
+    },
+    {
+      "name": "User invitation APIs",
+      "description": "",
+      "externalDocs": {
+        "description": "",
+        "url": ""
+      }
+    },
+    {
+      "name": "User APIs",
+      "description": "",
+      "externalDocs": {
+        "description": "",
+        "url": ""
+      }
+    },
+    {
+      "name": "User Profile Photo APIs",
+      "description": "",
+      "externalDocs": {
+        "description": "",
+        "url": ""
+      }
+    },
+    {
+      "name": "Group APIs",
+      "description": "",
+      "externalDocs": {
+        "description": "",
+        "url": ""
+      }
+    },
+    {
+      "name": "Group Members APIs",
+      "description": "",
+      "externalDocs": {
+        "description": "",
+        "url": ""
+      }
+    },
+    {
+      "name": "Authentication APIs",
+      "description": "",
+      "externalDocs": {
+        "description": "",
+        "url": ""
+      }
+    },
+    {
+      "name": "Image Assets APIs",
+      "description": "",
+      "externalDocs": {
+        "description": "",
+        "url": ""
+      }
+    },
+    {
+      "name": "Javascript Library APIs",
+      "description": "",
+      "externalDocs": {
+        "description": "",
+        "url": ""
+      }
+    },
+    {
+      "name": "Status checks APIs",
+      "description": "",
+      "externalDocs": {
+        "description": "",
+        "url": ""
+      }
+    },
+    {
+      "name": "Server Setting APIs",
+      "description": "",
+      "externalDocs": {
+        "description": "",
+        "url": ""
+      }
+    },
+    {
+      "name": "default",
+      "description": "",
+      "externalDocs": {
+        "description": "",
+        "url": ""
+      }
+    }
+  ]
 }
