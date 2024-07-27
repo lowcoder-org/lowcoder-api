@@ -52,672 +52,6 @@
     }
   ],
   "paths": {
-    "/api/users/password": {
-      "put": {
-        "tags": [
-          "User Password APIs"
-        ],
-        "summary": "Update User Password",
-        "description": "Allow the User to update their Password within Lowcoder, enhancing security and account management.",
-        "operationId": "updatePassword",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/UpdatePasswordRequest"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResponseViewBoolean"
-                }
-              }
-            }
-          }
-        }
-      },
-      "post": {
-        "tags": [
-          "User Password APIs"
-        ],
-        "summary": "Set User Password",
-        "description": "Set a new Password for the User within Lowcoder, ensuring secure access to their account.",
-        "operationId": "setPassword",
-        "parameters": [
-          {
-            "name": "password",
-            "in": "query",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResponseViewBoolean"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/users/newUserGuidanceShown": {
-      "put": {
-        "tags": [
-          "User APIs"
-        ],
-        "summary": "Mark current user with help shown status",
-        "description": "Indicate that the current user has been shown help or guidance within Lowcoder, helping track user assistance efforts.",
-        "operationId": "newUserGuidanceShown",
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResponseViewBoolean"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/users/mark-status": {
-      "put": {
-        "tags": [
-          "User APIs"
-        ],
-        "summary": "Mark current User with Status",
-        "description": "Mark the current User with a specific Status within Lowcoder, allowing for status tracking or updates.",
-        "operationId": "markUserStatus",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/MarkUserStatusRequest"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResponseViewBoolean"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/users": {
-      "put": {
-        "tags": [
-          "User APIs"
-        ],
-        "summary": "Update current User",
-        "description": "Enable the current User to update their Profile information within Lowcoder, ensuring accuracy and relevance.",
-        "operationId": "updateUser",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/UpdateUserRequest"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResponseViewUserProfileView"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/organizations/{orgId}/update": {
-      "put": {
-        "tags": [
-          "Organization APIs"
-        ],
-        "summary": "Update Organization by ID",
-        "description": "Modify the properties and settings of an existing Organization within Lowcoder identified by its unique ID.",
-        "operationId": "updateOrganization",
-        "parameters": [
-          {
-            "name": "orgId",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/UpdateOrgRequest"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResponseViewBoolean"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/organizations/{orgId}/role": {
-      "put": {
-        "tags": [
-          "Organization Member APIs"
-        ],
-        "summary": "Update role of Member in Organization",
-        "description": "Change the Role of a specific Member (User) within an Organization in Lowcoder using the unique ID of a user and the name of the existing Role.",
-        "operationId": "updateOrganizationMemberRole",
-        "parameters": [
-          {
-            "name": "orgId",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/UpdateRoleRequest"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResponseViewBoolean"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/organizations/{orgId}/common-settings": {
-      "get": {
-        "tags": [
-          "Organization APIs"
-        ],
-        "summary": "Get Organization common Settings",
-        "description": "Retrieve common settings (such as Themes and Auth Sources) and configurations for an Organization within Lowcoder using its unique ID.",
-        "operationId": "getOrganizationSettings",
-        "parameters": [
-          {
-            "name": "orgId",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResponseViewOrganizationCommonSettings"
-                }
-              }
-            }
-          }
-        }
-      },
-      "put": {
-        "tags": [
-          "Organization APIs"
-        ],
-        "summary": "Update Organization common Settings",
-        "description": "Modify common settings (such as Themes) and configurations for a Lowcoder Organization / Workspace.",
-        "operationId": "updateOrganizationSettings",
-        "parameters": [
-          {
-            "name": "orgId",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/UpdateOrgCommonSettingsRequest"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResponseViewBoolean"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/organizations/switchOrganization/{orgId}": {
-      "put": {
-        "tags": [
-          "Organization Member APIs"
-        ],
-        "summary": "Switch current users Organization",
-        "description": "Trigger a switch of the active Organization for the current User within Lowcoder in regards to the Session. After this switch, the impersonated user will see all resources from the new / selected Organization.",
-        "operationId": "switchOrganization",
-        "parameters": [
-          {
-            "name": "orgId",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResponseViewObject"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/groups/{groupId}/update": {
-      "put": {
-        "tags": [
-          "Group APIs"
-        ],
-        "summary": "Update User Group",
-        "description": "Modify the properties and settings of an existing User Group within Lowcoder, identified by the unique ID of a User Group.",
-        "operationId": "updateGroup",
-        "parameters": [
-          {
-            "name": "groupId",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/UpdateGroupRequest"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResponseViewBoolean"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/groups/{groupId}/role": {
-      "put": {
-        "tags": [
-          "Group Members APIs"
-        ],
-        "summary": "Update User Group member role",
-        "description": "Modify the Role of a specific Member within a User Group in Lowcoder, ensuring proper access control.",
-        "operationId": "updateRoleForGroupMember",
-        "parameters": [
-          {
-            "name": "groupId",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/UpdateRoleRequest"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResponseViewBoolean"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/datasources/{id}": {
-      "get": {
-        "tags": [
-          "Data Source APIs"
-        ],
-        "summary": "Get data source by ID",
-        "description": "Retrieve a specific data source within Lowcoder by its ID.",
-        "operationId": "getDatasource",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResponseViewDatasource_Public"
-                }
-              }
-            }
-          }
-        }
-      },
-      "put": {
-        "tags": [
-          "Data Source APIs"
-        ],
-        "summary": "Update data source by ID",
-        "description": "Modify the properties and settings of a data source within Lowcoder using its ID.",
-        "operationId": "updateDatasource",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/UpsertDatasourceRequest_Public"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResponseViewDatasource_Public"
-                }
-              }
-            }
-          }
-        }
-      },
-      "delete": {
-        "tags": [
-          "Data Source APIs"
-        ],
-        "summary": "Delete data source by ID",
-        "description": "Permanently remove a data source within Lowcoder using its ID.",
-        "operationId": "deleteDatasource",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResponseViewBoolean"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/datasources/{datasourceId}/permissions": {
-      "get": {
-        "tags": [
-          "Data Source Permissions APIs"
-        ],
-        "summary": "Get data source permissions",
-        "description": "Retrieve permissions associated with a specific data source within Lowcoder, identified by its ID.",
-        "operationId": "listDatasourcePermissions",
-        "parameters": [
-          {
-            "name": "datasourceId",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResponseViewCommonPermissionView"
-                }
-              }
-            }
-          }
-        }
-      },
-      "put": {
-        "tags": [
-          "Data Source Permissions APIs"
-        ],
-        "summary": "Update data source permission",
-        "description": "Modify a specific data source permission within Lowcoder, identified by its ID.",
-        "operationId": "updateDatasourcePermission",
-        "parameters": [
-          {
-            "name": "datasourceId",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/BatchAddPermissionRequest"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResponseViewBoolean"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/datasources/permissions/{permissionId}": {
-      "put": {
-        "tags": [
-          "Data Source Permissions APIs"
-        ],
-        "summary": "Grant permissions to data source",
-        "description": "Assign permissions for selected users or user-groups to a specific data source within Lowcoder, identified by its ID.",
-        "operationId": "grantDatasourcePermissions",
-        "parameters": [
-          {
-            "name": "permissionId",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/UpdatePermissionRequest"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResponseViewBoolean"
-                }
-              }
-            }
-          }
-        }
-      },
-      "delete": {
-        "tags": [
-          "Data Source Permissions APIs"
-        ],
-        "summary": "Revoke permission from data source",
-        "description": "Revoke a specific permission from a data source within Lowcoder, identified by its ID.",
-        "operationId": "revokeDatasourcePermission",
-        "parameters": [
-          {
-            "name": "permissionId",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResponseViewBoolean"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
     "/api/applications/{applicationId}/public-to-marketplace": {
       "put": {
         "tags": [
@@ -1170,121 +504,83 @@
         }
       }
     },
-    "/api/library-queries/{libraryQueryId}": {
-      "put": {
-        "tags": [
-          "Query Library APIs"
-        ],
-        "summary": "Update a Data Query Library",
-        "description": "Modify the properties and settings of an existing Library Query within Lowcoder identified by its unique ID.",
-        "operationId": "updateLibraryQuery",
-        "parameters": [
-          {
-            "name": "libraryQueryId",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/UpsertLibraryQueryRequest"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResponseViewBoolean"
-                }
-              }
-            }
-          }
-        }
-      },
-      "delete": {
-        "tags": [
-          "Query Library APIs"
-        ],
-        "summary": "Delete a Data Query Library",
-        "description": "Permanently remove a Library Query from Lowcoder using its unique ID.",
-        "operationId": "deleteLibraryQuery",
-        "parameters": [
-          {
-            "name": "libraryQueryId",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResponseViewBoolean"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/folders": {
-      "put": {
-        "tags": [
-          "Folder APIs"
-        ],
-        "summary": "Update Folder",
-        "description": "Modify the properties and settings of an existing Application Folder within Lowcoder.",
-        "operationId": "updateFolder",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/Folder"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResponseViewFolderInfoView"
-                }
-              }
-            }
-          }
-        }
-      },
+    "/api/applications/{applicationId}/publish": {
       "post": {
         "tags": [
-          "Folder APIs"
+          "Application APIs"
         ],
-        "summary": "Create new Folder",
-        "description": "Create a new Application Folder within the Lowcoder to organize Applications effectively.",
-        "operationId": "createFolder",
+        "summary": "Publish Application for users",
+        "description": "Set a Lowcoder Application identified by its ID as available to all selected Users or User-Groups. This is similar to the classic deployment. The Lowcoder Apps gets published in production mode.",
+        "operationId": "publicApplication",
+        "parameters": [
+          {
+            "name": "applicationId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseViewApplicationView"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/applications/createFromTemplate": {
+      "post": {
+        "tags": [
+          "Application APIs"
+        ],
+        "summary": "Create an Application from a predefined Template",
+        "description": "Use an Application-Template to create a new Application in an Organization where the authenticated or impersonated user has access.",
+        "operationId": "createApplicationFromTemplate",
+        "parameters": [
+          {
+            "name": "templateId",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseViewApplicationView"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/applications": {
+      "post": {
+        "tags": [
+          "Application APIs"
+        ],
+        "summary": "Create a new Application",
+        "description": "Create a new Lowcoder Application based on the Organization-ID where the authenticated or impersonated user has access.",
+        "operationId": " createApplication",
         "requestBody": {
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/Folder"
+                "$ref": "#/components/schemas/CreateApplicationRequest"
               }
             }
           },
@@ -1296,7 +592,7 @@
             "content": {
               "*/*": {
                 "schema": {
-                  "$ref": "#/components/schemas/ResponseViewFolderInfoView"
+                  "$ref": "#/components/schemas/ResponseViewApplicationView"
                 }
               }
             }
@@ -1304,73 +600,17 @@
         }
       }
     },
-    "/api/folders/{folderId}/permissions/{permissionId}": {
-      "put": {
+    "/api/applications/{applicationId}/view_marketplace": {
+      "get": {
         "tags": [
-          "Folder Permissions APIs"
+          "Application APIs"
         ],
-        "summary": "Update Folder permissions",
-        "description": "Modify permissions associated with a specific Application Folder within Lowcoder.",
-        "operationId": "updateFolderPermissions",
+        "summary": "Get Marketplace Application data in view mode",
+        "description": "Retrieve the DSL data of a Lowcoder Application in view-mode by its ID for the Marketplace.",
+        "operationId": "getMarketplaceApplicationDataInViewMode",
         "parameters": [
           {
-            "name": "folderId",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "permissionId",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/UpdatePermissionRequest"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResponseViewVoid"
-                }
-              }
-            }
-          }
-        }
-      },
-      "delete": {
-        "tags": [
-          "Folder Permissions APIs"
-        ],
-        "summary": "Revoke permissions from Folder",
-        "description": "Remove specific permissions from an Application Folder within Lowcoder, ensuring that selected Users or User-Groups no longer have access.",
-        "operationId": "revokeFolderPermissions",
-        "parameters": [
-          {
-            "name": "folderId",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "permissionId",
+            "name": "applicationId",
             "in": "path",
             "required": true,
             "schema": {
@@ -1384,7 +624,7 @@
             "content": {
               "*/*": {
                 "schema": {
-                  "$ref": "#/components/schemas/ResponseViewVoid"
+                  "$ref": "#/components/schemas/ResponseViewApplicationView"
                 }
               }
             }
@@ -1392,28 +632,353 @@
         }
       }
     },
-    "/api/folders/move/{id}": {
-      "put": {
+    "/api/applications/{applicationId}/view_agency": {
+      "get": {
         "tags": [
-          "Folder APIs"
+          "Application APIs"
         ],
-        "summary": "Move Folder",
-        "description": "Relocate an Application Folder to a different location in the Folder hierarchy in Lowcoder using its unique ID.",
-        "operationId": "moveFolder",
+        "summary": "Get Agency profile Application data in view mode",
+        "description": "Retrieve the DSL data of a Lowcoder Application in view-mode by its ID marked as Agency Profile.",
+        "operationId": "getAgencyProfileApplicationDataInViewMode",
         "parameters": [
           {
-            "name": "id",
+            "name": "applicationId",
             "in": "path",
             "required": true,
             "schema": {
               "type": "string"
             }
-          },
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseViewApplicationView"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/applications/{applicationId}/view": {
+      "get": {
+        "tags": [
+          "Application APIs"
+        ],
+        "summary": "Get Application data in view mode",
+        "description": "Retrieve the DSL data of a Lowcoder Application in view-mode by its ID.",
+        "operationId": "getApplicatioDataInViewMode",
+        "parameters": [
           {
-            "name": "targetFolderId",
+            "name": "applicationId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseViewApplicationView"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/applications/recycle/list": {
+      "get": {
+        "tags": [
+          "Application APIs"
+        ],
+        "summary": "List recycled Applications in bin",
+        "description": "List all the recycled Lowcoder Applications in the recycle bin where the authenticated or impersonated user has access.",
+        "operationId": "listRecycledApplications",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseViewListApplicationInfoView"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/applications/marketplace-apps": {
+      "get": {
+        "tags": [
+          "Application APIs"
+        ],
+        "summary": "List Marketplace Applications",
+        "description": "Retrieve a list of Lowcoder Applications that are published to the Marketplace",
+        "operationId": "listMarketplaceApplications",
+        "parameters": [
+          {
+            "name": "applicationType",
             "in": "query",
             "required": false,
             "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseViewListMarketplaceApplicationInfoView"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/applications/list": {
+      "get": {
+        "tags": [
+          "Application APIs"
+        ],
+        "summary": "List Applications of current User",
+        "description": "Retrieve a list of Lowcoder Applications accessible by the authenticated or impersonated user.",
+        "operationId": "listApplications",
+        "parameters": [
+          {
+            "name": "applicationType",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "applicationStatus",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "NORMAL",
+                "RECYCLED",
+                "DELETED"
+              ]
+            }
+          },
+          {
+            "name": "withContainerSize",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "boolean",
+              "default": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseViewListApplicationInfoView"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/applications/home": {
+      "get": {
+        "tags": [
+          "Application APIs"
+        ],
+        "summary": "Get the homepage Application of current User",
+        "description": "Retrieve the first displayed Lowcoder Application for an authenticated or impersonated user.",
+        "operationId": "getUserHomepageApplication",
+        "parameters": [
+          {
+            "name": "applicationType",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 0
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseViewUserHomepageView"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/applications/agency-profiles": {
+      "get": {
+        "tags": [
+          "Application APIs"
+        ],
+        "summary": "List agency profile Applications",
+        "description": "Retrieve a list of Lowcoder Applications that are set as agency profiles",
+        "operationId": "listAgencyProfileApplications",
+        "parameters": [
+          {
+            "name": "applicationType",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseViewListMarketplaceApplicationInfoView"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/application/history-snapshots": {
+      "post": {
+        "tags": [
+          "Application History APIs"
+        ],
+        "summary": "Create Application Snapshot",
+        "description": "Create a snapshot of an Application DSL within Lowcoder, capturing its current state for future reference.",
+        "operationId": "createApplicationSnapshot",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ApplicationHistorySnapshotRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseViewBoolean"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/application/history-snapshots/{applicationId}": {
+      "get": {
+        "tags": [
+          "Application History APIs"
+        ],
+        "summary": "List Application Snapshots",
+        "description": "Retrieve a list of Snapshots associated with a specific Application within Lowcoder.",
+        "operationId": "listApplicationSnapshots",
+        "parameters": [
+          {
+            "name": "applicationId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 0
+            }
+          },
+          {
+            "name": "size",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 10
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseViewMapStringObject"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/application/history-snapshots/{applicationId}/{snapshotId}": {
+      "get": {
+        "tags": [
+          "Application History APIs"
+        ],
+        "summary": "Retrieve Application Snapshot",
+        "description": "Retrieve a specific Application Snapshot within Lowcoder using the Application and Snapshot IDs.",
+        "operationId": "getApplicationSnapshot",
+        "parameters": [
+          {
+            "name": "applicationId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "snapshotId",
+            "in": "path",
+            "required": true,
+            "schema": {
               "type": "string"
             }
           }
@@ -1424,7 +989,7 @@
             "content": {
               "*/*": {
                 "schema": {
-                  "$ref": "#/components/schemas/ResponseViewVoid"
+                  "$ref": "#/components/schemas/ResponseViewHistorySnapshotDslView"
                 }
               }
             }
@@ -1487,6 +1052,38 @@
               "*/*": {
                 "schema": {
                   "$ref": "#/components/schemas/ResponseViewBundleInfoView"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/bundles/{id}": {
+      "delete": {
+        "tags": [
+          "Bundle APIs"
+        ],
+        "summary": "Delete Bundle",
+        "description": "Permanently remove an Application Bundle from Lowcoder using its unique ID.",
+        "operationId": "deleteBundle",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseViewVoid"
                 }
               }
             }
@@ -1903,6 +1500,2430 @@
         }
       }
     },
+    "/api/bundles/{bundleId}/publish": {
+      "post": {
+        "tags": [
+          "Bundle APIs"
+        ],
+        "summary": "Publish Bundle for users",
+        "description": "Set a Lowcoder Bundle identified by its ID as available to all selected Users or User-Groups. This is similar to the classic deployment. The Lowcoder Bundle gets published in production mode.",
+        "operationId": "publicBundle",
+        "parameters": [
+          {
+            "name": "bundleId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseViewBundleInfoView"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/bundles/{bundleId}/permissions": {
+      "get": {
+        "tags": [
+          "Bundle Permissions APIs"
+        ],
+        "summary": "Get Bundle permissions",
+        "description": "Retrieve detailed information about permissions associated with a specific Bundle Bundle within Lowcoder.",
+        "operationId": "listBundlePermissions",
+        "parameters": [
+          {
+            "name": "bundleId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseViewBundlePermissionView"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Bundle Permissions APIs"
+        ],
+        "summary": "Grant permissions to Bundle",
+        "description": "Assign new permissions to a specific Bundle Bundle within Lowcoder, allowing authorized users to access it.",
+        "operationId": "grantBundlePermissions",
+        "parameters": [
+          {
+            "name": "bundleId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/BatchAddPermissionRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseViewVoid"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/bundles/{bundleId}/view": {
+      "get": {
+        "tags": [
+          "Bundle APIs"
+        ],
+        "summary": "Get Bundle data in view mode",
+        "description": "Retrieve the data of a Lowcoder Bundle in view-mode by its ID.",
+        "operationId": "getBundleDataInViewMode",
+        "parameters": [
+          {
+            "name": "bundleId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseViewBundleInfoView"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/bundles/{bundleId}/view_marketplace": {
+      "get": {
+        "tags": [
+          "Bundle APIs"
+        ],
+        "summary": "Get Marketplace Bundle data in view mode",
+        "description": "Retrieve the DSL data of a Lowcoder Bundle in view-mode by its ID for the Marketplace.",
+        "operationId": "getMarketplaceBundleDataInViewMode",
+        "parameters": [
+          {
+            "name": "bundleId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseViewBundleInfoView"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/bundles/{bundleId}/view_agency": {
+      "get": {
+        "tags": [
+          "Bundle APIs"
+        ],
+        "summary": "Get Agency profile Bundle data in view mode",
+        "description": "Retrieve the DSL data of a Lowcoder Bundle in view-mode by its ID marked as Agency Profile.",
+        "operationId": "getAgencyProfileBundleDataInViewMode",
+        "parameters": [
+          {
+            "name": "bundleId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseViewBundleInfoView"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/bundles/{bundleId}/elements": {
+      "get": {
+        "tags": [
+          "Bundle APIs"
+        ],
+        "summary": "Get Bundle contents",
+        "description": "Retrieve the contents of an Bundle Bundle within Lowcoder, including Bundles.",
+        "operationId": "listBundleContents",
+        "parameters": [
+          {
+            "name": "bundleId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "applicationType",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "APPLICATION",
+                "MODULE",
+                "COMPOUND_APPLICATION"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseViewListObject"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/bundles/recycle/list": {
+      "get": {
+        "tags": [
+          "Bundle APIs"
+        ],
+        "summary": "List recycled Bundles in bin",
+        "description": "List all the recycled Lowcoder Bundles in the recycle bin where the authenticated or impersonated user has access.",
+        "operationId": "listRecycledBundles",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseViewListBundleInfoView"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/bundles/marketplace-bundles": {
+      "get": {
+        "tags": [
+          "Bundle APIs"
+        ],
+        "summary": "List Marketplace Bundles",
+        "description": "Retrieve a list of Lowcoder Bundles that are published to the Marketplace",
+        "operationId": "listMarketplaceBundles",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseViewListMarketplaceBundleInfoView"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/bundles/list": {
+      "get": {
+        "tags": [
+          "Bundle APIs"
+        ],
+        "summary": "List Bundles of current User",
+        "description": "Retrieve a list of Lowcoder Bundles accessible by the authenticated or impersonated user.",
+        "operationId": "listBundles",
+        "parameters": [
+          {
+            "name": "bundleStatus",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "NORMAL",
+                "RECYCLED",
+                "DELETED"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseViewListBundleInfoView"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/bundles/agency-profiles": {
+      "get": {
+        "tags": [
+          "Bundle APIs"
+        ],
+        "summary": "List agency profile Bundles",
+        "description": "Retrieve a list of Lowcoder Bundles that are set as agency profiles",
+        "operationId": "listAgencyProfileBundles",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseViewListMarketplaceBundleInfoView"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/folders": {
+      "put": {
+        "tags": [
+          "Folder APIs"
+        ],
+        "summary": "Update Folder",
+        "description": "Modify the properties and settings of an existing Application Folder within Lowcoder.",
+        "operationId": "updateFolder",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Folder"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseViewFolderInfoView"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Folder APIs"
+        ],
+        "summary": "Create new Folder",
+        "description": "Create a new Application Folder within the Lowcoder to organize Applications effectively.",
+        "operationId": "createFolder",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Folder"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseViewFolderInfoView"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/folders/{folderId}/permissions/{permissionId}": {
+      "put": {
+        "tags": [
+          "Folder Permissions APIs"
+        ],
+        "summary": "Update Folder permissions",
+        "description": "Modify permissions associated with a specific Application Folder within Lowcoder.",
+        "operationId": "updateFolderPermissions",
+        "parameters": [
+          {
+            "name": "folderId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "permissionId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdatePermissionRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseViewVoid"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Folder Permissions APIs"
+        ],
+        "summary": "Revoke permissions from Folder",
+        "description": "Remove specific permissions from an Application Folder within Lowcoder, ensuring that selected Users or User-Groups no longer have access.",
+        "operationId": "revokeFolderPermissions",
+        "parameters": [
+          {
+            "name": "folderId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "permissionId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseViewVoid"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/folders/move/{id}": {
+      "put": {
+        "tags": [
+          "Folder APIs"
+        ],
+        "summary": "Move Folder",
+        "description": "Relocate an Application Folder to a different location in the Folder hierarchy in Lowcoder using its unique ID.",
+        "operationId": "moveFolder",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "targetFolderId",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseViewVoid"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/folders/{folderId}/permissions": {
+      "get": {
+        "tags": [
+          "Folder Permissions APIs"
+        ],
+        "summary": "Get Folder permissions",
+        "description": "Retrieve detailed information about permissions associated with a specific Application Folder within Lowcoder.",
+        "operationId": "listFolderPermissions",
+        "parameters": [
+          {
+            "name": "folderId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseViewApplicationPermissionView"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Folder Permissions APIs"
+        ],
+        "summary": "Grant permissions to Folder",
+        "description": "Assign new permissions to a specific Application Folder within Lowcoder, allowing authorized users to access it.",
+        "operationId": "grantFolderPermissions",
+        "parameters": [
+          {
+            "name": "folderId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/BatchAddPermissionRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseViewVoid"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/folders/elements": {
+      "get": {
+        "tags": [
+          "Folder APIs"
+        ],
+        "summary": "Get Folder contents",
+        "description": "Retrieve the contents of an Application Folder within Lowcoder, including Applications and Subfolders.",
+        "operationId": "listFolderContents",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "applicationType",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "APPLICATION",
+                "MODULE",
+                "COMPOUND_APPLICATION"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseViewListObject"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/folders/{id}": {
+      "delete": {
+        "tags": [
+          "Folder APIs"
+        ],
+        "summary": "Delete Folder",
+        "description": "Permanently remove an Application Folder from Lowcoder using its unique ID.",
+        "operationId": "deleteFolder",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseViewVoid"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/datasources": {
+      "post": {
+        "tags": [
+          "Data Source APIs"
+        ],
+        "summary": "Create new data source",
+        "description": "Create a new data source in Lowcoder for data retrieval or storage.",
+        "operationId": "createDatasource",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpsertDatasourceRequest_Public"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseViewDatasource_Public"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/datasources/{id}": {
+      "get": {
+        "tags": [
+          "Data Source APIs"
+        ],
+        "summary": "Get data source by ID",
+        "description": "Retrieve a specific data source within Lowcoder by its ID.",
+        "operationId": "getDatasource",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseViewDatasource_Public"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Data Source APIs"
+        ],
+        "summary": "Update data source by ID",
+        "description": "Modify the properties and settings of a data source within Lowcoder using its ID.",
+        "operationId": "updateDatasource",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpsertDatasourceRequest_Public"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseViewDatasource_Public"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Data Source APIs"
+        ],
+        "summary": "Delete data source by ID",
+        "description": "Permanently remove a data source within Lowcoder using its ID.",
+        "operationId": "deleteDatasource",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseViewBoolean"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/datasources/{datasourceId}/permissions": {
+      "get": {
+        "tags": [
+          "Data Source Permissions APIs"
+        ],
+        "summary": "Get data source permissions",
+        "description": "Retrieve permissions associated with a specific data source within Lowcoder, identified by its ID.",
+        "operationId": "listDatasourcePermissions",
+        "parameters": [
+          {
+            "name": "datasourceId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseViewCommonPermissionView"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Data Source Permissions APIs"
+        ],
+        "summary": "Update data source permission",
+        "description": "Modify a specific data source permission within Lowcoder, identified by its ID.",
+        "operationId": "updateDatasourcePermission",
+        "parameters": [
+          {
+            "name": "datasourceId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/BatchAddPermissionRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseViewBoolean"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/datasources/permissions/{permissionId}": {
+      "put": {
+        "tags": [
+          "Data Source Permissions APIs"
+        ],
+        "summary": "Grant permissions to data source",
+        "description": "Assign permissions for selected users or user-groups to a specific data source within Lowcoder, identified by its ID.",
+        "operationId": "grantDatasourcePermissions",
+        "parameters": [
+          {
+            "name": "permissionId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdatePermissionRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseViewBoolean"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Data Source Permissions APIs"
+        ],
+        "summary": "Revoke permission from data source",
+        "description": "Revoke a specific permission from a data source within Lowcoder, identified by its ID.",
+        "operationId": "revokeDatasourcePermission",
+        "parameters": [
+          {
+            "name": "permissionId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseViewBoolean"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/datasources/{datasourceId}/structure": {
+      "get": {
+        "tags": [
+          "Data Source APIs"
+        ],
+        "summary": "Get data source structure",
+        "description": "Retrieve the structure and schema of a data source within Lowcoder, identified by its ID.",
+        "operationId": "getDatasourceStructure",
+        "parameters": [
+          {
+            "name": "datasourceId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "ignoreCache",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "boolean",
+              "default": false
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseViewDatasourceStructure"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/datasources/listByOrg": {
+      "get": {
+        "tags": [
+          "Data Source APIs"
+        ],
+        "summary": "Get data sources by Organization ID",
+        "description": "List data sources associated with a specific Organization-ID within Lowcoder.",
+        "operationId": "listDatasourcesByOrg",
+        "parameters": [
+          {
+            "name": "orgId",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseViewListDatasourceView_Public"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/datasources/listByApp": {
+      "get": {
+        "tags": [
+          "Data Source APIs"
+        ],
+        "summary": "Get data sources by Application ID",
+        "description": "List data sources associated with a specific Application-ID within Lowcoder.",
+        "operationId": "listDatasourcesByApp",
+        "parameters": [
+          {
+            "name": "appId",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseViewListDatasourceView_Public"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/datasources/jsDatasourcePlugins": {
+      "get": {
+        "tags": [
+          "Data Source APIs"
+        ],
+        "summary": "Get Node service plugins",
+        "description": "Retrieve a list of node service plugins available within Lowcoder.",
+        "operationId": "listNodeServicePlugins",
+        "parameters": [
+          {
+            "name": "appId",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseViewListDatasource"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/datasources/info": {
+      "get": {
+        "tags": [
+          "Data Source APIs"
+        ],
+        "summary": "Get data source information",
+        "description": "Obtain information related to a data source within Lowcoder.",
+        "operationId": "getDatasourceInfo",
+        "parameters": [
+          {
+            "name": "datasourceId",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseViewObject"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/datasources/test": {
+      "post": {
+        "tags": [
+          "Data Source APIs"
+        ],
+        "summary": "Test data source",
+        "description": "Verify the functionality and connectivity of a data source within the Lowcoder platform, identified by its ID.",
+        "operationId": "testDatasource",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpsertDatasourceRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseViewBoolean"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/datasources/getPluginDynamicConfig": {
+      "post": {
+        "tags": [
+          "Data Source APIs"
+        ],
+        "summary": "Get data source dynamic config",
+        "description": "Get additional dynamic configuration parameter information of data source within Lowcoder.",
+        "operationId": "getDatasourceDynamicConfig",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/GetPluginDynamicConfigRequestDTO"
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseViewListObject"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/query/execute-from-node": {
+      "post": {
+        "tags": [
+          "Query Execution APIs"
+        ],
+        "summary": "Execute query from node service",
+        "description": "Execute a data Query from a Node service within Lowcoder, facilitating data retrieval and processing. Node Service is used for extended Data Source Plugins.",
+        "operationId": "executeQueryFromNodeService",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LibraryQueryRequestFromJs"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/QueryResultView"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/query/execute": {
+      "post": {
+        "tags": [
+          "Query Execution APIs"
+        ],
+        "summary": "Execute query from API service",
+        "description": "Execute a data Query from an API service within Lowcoder, facilitating data retrieval and processing. API Service is used for standard Data Sources like Databases.",
+        "operationId": "executeQueryFromApiService",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/QueryExecutionRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/QueryResultView"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/library-query-records": {
+      "get": {
+        "tags": [
+          "Library Queries Record APIs"
+        ],
+        "summary": "Get Library Query Records",
+        "description": "Retrieve a list of Library Query Records, which store information related to executed queries within Lowcoder and the current Organization / Workspace by the impersonated User",
+        "operationId": "listLibraryQueryRecords",
+        "parameters": [
+          {
+            "name": "libraryQueryId",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "libraryQueryRecordId",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseViewMapStringObject"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/library-query-records/listByLibraryQueryId": {
+      "get": {
+        "tags": [
+          "Library Queries Record APIs"
+        ],
+        "summary": "Get Library Query Record",
+        "description": "Retrieve a specific Library Query Record within Lowcoder using the associated library query ID.",
+        "operationId": "getLibraryQueryRecord",
+        "parameters": [
+          {
+            "name": "libraryQueryId",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseViewListLibraryQueryRecordMetaView"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/library-queries/listByOrg": {
+      "get": {
+        "tags": [
+          "Query Library APIs"
+        ],
+        "summary": "Get Data Query Libraries for organization",
+        "description": "Retrieve a list of Library Queries for a specific Organization within Lowcoder.",
+        "operationId": "listLibrartQueriesByOrg",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseViewListLibraryQueryView"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/library-queries/dropDownList": {
+      "get": {
+        "tags": [
+          "Query Library APIs"
+        ],
+        "summary": "Get Data Query Libraries in dropdown format",
+        "description": "Retrieve Library Queries in a dropdown format within Lowcoder, suitable for selection in user interfaces.",
+        "operationId": "listLibraryQueriesForDropDown",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseViewListLibraryQueryAggregateView"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/library-query-records/{libraryQueryRecordId}": {
+      "delete": {
+        "tags": [
+          "Library Queries Record APIs"
+        ],
+        "summary": "Delete Library Query Record",
+        "description": "Permanently remove a specific Library Query Record from Lowcoder using its unique record ID.",
+        "operationId": "deleteLibrartQueryRecord",
+        "parameters": [
+          {
+            "name": "libraryQueryRecordId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/library-queries/{libraryQueryId}/publish": {
+      "post": {
+        "tags": [
+          "Query Library APIs"
+        ],
+        "summary": "Publish a Data Query Library for usage",
+        "description": "Publish a Library Query for usage within Lowcoder, making it available for other users to utilize.",
+        "operationId": "publishLibraryQuery",
+        "parameters": [
+          {
+            "name": "libraryQueryId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LibraryQueryPublishRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseViewLibraryQueryRecordMetaView"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/library-queries": {
+      "post": {
+        "tags": [
+          "Query Library APIs"
+        ],
+        "summary": "Create a Library for Data Queries",
+        "description": "Create a new Library Query within Lowcoder for storing and managing reusable Data Queries.",
+        "operationId": "createLibraryQuery",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LibraryQuery"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseViewLibraryQueryView"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/library-queries/{libraryQueryId}": {
+      "put": {
+        "tags": [
+          "Query Library APIs"
+        ],
+        "summary": "Update a Data Query Library",
+        "description": "Modify the properties and settings of an existing Library Query within Lowcoder identified by its unique ID.",
+        "operationId": "updateLibraryQuery",
+        "parameters": [
+          {
+            "name": "libraryQueryId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpsertLibraryQueryRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseViewBoolean"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Query Library APIs"
+        ],
+        "summary": "Delete a Data Query Library",
+        "description": "Permanently remove a Library Query from Lowcoder using its unique ID.",
+        "operationId": "deleteLibraryQuery",
+        "parameters": [
+          {
+            "name": "libraryQueryId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseViewBoolean"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/organizations": {
+      "post": {
+        "tags": [
+          "Organization APIs"
+        ],
+        "summary": "Create a new Organization",
+        "description": "Create a new Organization (Workspace) within the Lowcoder platform as a encapsulated space for Applications, Users and Resources.",
+        "operationId": "createOrganization",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Organization"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseViewOrgView"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/organizations/{orgId}/logo": {
+      "post": {
+        "tags": [
+          "Organization APIs"
+        ],
+        "summary": "Upload Organization Logo",
+        "description": "Upload an Organization logo for branding and identification for a Lowcoder Organization / Workspace.",
+        "operationId": "uploadOrganizationLogo",
+        "parameters": [
+          {
+            "name": "orgId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "required": [
+                  "file"
+                ],
+                "type": "object",
+                "properties": {
+                  "file": {
+                    "$ref": "#/components/schemas/Part"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseViewBoolean"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Organization APIs"
+        ],
+        "summary": "Delete Organization Logo",
+        "description": "Remove the logo associated with an Organization within Lowcoder.",
+        "operationId": "deleteOrganizationLogo",
+        "parameters": [
+          {
+            "name": "orgId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseViewBoolean"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/organizations/{orgId}/members": {
+      "get": {
+        "tags": [
+          "Organization Member APIs"
+        ],
+        "summary": "List Organization Members",
+        "description": "Retrieve a list of members belonging to an Organization within Lowcoder.",
+        "operationId": "listOrganizationMembers",
+        "parameters": [
+          {
+            "name": "orgId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 0
+            }
+          },
+          {
+            "name": "count",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 1000
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseViewOrgMemberListView"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/organizations/{orgId}/datasourceTypes": {
+      "get": {
+        "tags": [
+          "Organization Member APIs"
+        ],
+        "summary": "Get supported data source types for Organization",
+        "description": "Retrieve a list of supported datasource types for an Organization within Lowcoder.",
+        "operationId": "getOrganizationDatasourceTypes",
+        "parameters": [
+          {
+            "name": "orgId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseViewListDatasourceMetaInfo"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/organizations/{orgId}/api-usage": {
+      "get": {
+        "tags": [
+          "Organization APIs"
+        ],
+        "summary": "Get the api usage count for the org",
+        "description": "Calculate the used api calls for this organization and return the count",
+        "operationId": "getOrgApiUsageCount",
+        "parameters": [
+          {
+            "name": "orgId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "lastMonthOnly",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseViewLong"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/organizations/{orgId}/remove": {
+      "delete": {
+        "tags": [
+          "Organization APIs"
+        ],
+        "summary": "Delete Organization by ID",
+        "description": "Permanently remove an User from an Organization in Lowcoder using its unique IDs.",
+        "operationId": "deleteOrganization",
+        "parameters": [
+          {
+            "name": "orgId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "userId",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseViewBoolean"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/organizations/{orgId}/leave": {
+      "delete": {
+        "tags": [
+          "Organization Member APIs"
+        ],
+        "summary": "Remove current user from Organization",
+        "description": "Allow the current user to voluntarily leave an Organization in Lowcoder, removing themselves from the organization's membership.",
+        "operationId": "leaveOrganization",
+        "parameters": [
+          {
+            "name": "orgId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseViewBoolean"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/organizations/{orgId}": {
+      "delete": {
+        "tags": [
+          "Organization APIs"
+        ],
+        "summary": "Delete Organization by ID",
+        "description": "Permanently remove an Organization from Lowcoder using its unique ID.",
+        "operationId": "deleteOrganization_1",
+        "parameters": [
+          {
+            "name": "orgId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseViewBoolean"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/organizations/{orgId}/update": {
+      "put": {
+        "tags": [
+          "Organization APIs"
+        ],
+        "summary": "Update Organization by ID",
+        "description": "Modify the properties and settings of an existing Organization within Lowcoder identified by its unique ID.",
+        "operationId": "updateOrganization",
+        "parameters": [
+          {
+            "name": "orgId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateOrgRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseViewBoolean"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/organizations/{orgId}/role": {
+      "put": {
+        "tags": [
+          "Organization Member APIs"
+        ],
+        "summary": "Update role of Member in Organization",
+        "description": "Change the Role of a specific Member (User) within an Organization in Lowcoder using the unique ID of a user and the name of the existing Role.",
+        "operationId": "updateOrganizationMemberRole",
+        "parameters": [
+          {
+            "name": "orgId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateRoleRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseViewBoolean"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/organizations/{orgId}/common-settings": {
+      "get": {
+        "tags": [
+          "Organization APIs"
+        ],
+        "summary": "Get Organization common Settings",
+        "description": "Retrieve common settings (such as Themes and Auth Sources) and configurations for an Organization within Lowcoder using its unique ID.",
+        "operationId": "getOrganizationSettings",
+        "parameters": [
+          {
+            "name": "orgId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseViewOrganizationCommonSettings"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Organization APIs"
+        ],
+        "summary": "Update Organization common Settings",
+        "description": "Modify common settings (such as Themes) and configurations for a Lowcoder Organization / Workspace.",
+        "operationId": "updateOrganizationSettings",
+        "parameters": [
+          {
+            "name": "orgId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateOrgCommonSettingsRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseViewBoolean"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/organizations/switchOrganization/{orgId}": {
+      "put": {
+        "tags": [
+          "Organization Member APIs"
+        ],
+        "summary": "Switch current users Organization",
+        "description": "Trigger a switch of the active Organization for the current User within Lowcoder in regards to the Session. After this switch, the impersonated user will see all resources from the new / selected Organization.",
+        "operationId": "switchOrganization",
+        "parameters": [
+          {
+            "name": "orgId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseViewObject"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/invitation": {
+      "post": {
+        "tags": [
+          "User invitation APIs"
+        ],
+        "summary": "Create user Invitation",
+        "description": "Create a generic User-Invitation within Lowcoder to invite new users to join the platform. Internally an invite Link based on inviting User and it's current Organization / Workspace is built.",
+        "operationId": "createUserInvitation",
+        "parameters": [
+          {
+            "name": "orgId",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseViewInvitationVO"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/invitation/{invitationId}/invite": {
+      "get": {
+        "tags": [
+          "User invitation APIs"
+        ],
+        "summary": "Get Invitation",
+        "description": "Retrieve information about a specific Invitation within Lowcoder, including details about the Invitee and the connected Organization / Workspace.",
+        "operationId": "getInvitation",
+        "parameters": [
+          {
+            "name": "invitationId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseViewObject"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/invitation/{invitationId}": {
+      "get": {
+        "tags": [
+          "User invitation APIs"
+        ],
+        "summary": "Invite User",
+        "description": "Proceed the actual Invite for User to an Lowcoder Organization / Workspace using an existing Invitation identified by its ID.",
+        "operationId": "inviteUser",
+        "parameters": [
+          {
+            "name": "invitationId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseViewInvitationVO"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/users": {
+      "put": {
+        "tags": [
+          "User APIs"
+        ],
+        "summary": "Update current User",
+        "description": "Enable the current User to update their Profile information within Lowcoder, ensuring accuracy and relevance.",
+        "operationId": "updateUser",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateUserRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseViewUserProfileView"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/users/password": {
+      "put": {
+        "tags": [
+          "User Password APIs"
+        ],
+        "summary": "Update User Password",
+        "description": "Allow the User to update their Password within Lowcoder, enhancing security and account management.",
+        "operationId": "updatePassword",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdatePasswordRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseViewBoolean"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "User Password APIs"
+        ],
+        "summary": "Set User Password",
+        "description": "Set a new Password for the User within Lowcoder, ensuring secure access to their account.",
+        "operationId": "setPassword",
+        "parameters": [
+          {
+            "name": "password",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseViewBoolean"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/users/newUserGuidanceShown": {
+      "put": {
+        "tags": [
+          "User APIs"
+        ],
+        "summary": "Mark current user with help shown status",
+        "description": "Indicate that the current user has been shown help or guidance within Lowcoder, helping track user assistance efforts.",
+        "operationId": "newUserGuidanceShown",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseViewBoolean"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/users/mark-status": {
+      "put": {
+        "tags": [
+          "User APIs"
+        ],
+        "summary": "Mark current User with Status",
+        "description": "Mark the current User with a specific Status within Lowcoder, allowing for status tracking or updates.",
+        "operationId": "markUserStatus",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/MarkUserStatusRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseViewBoolean"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/users/userDetail/{id}": {
+      "get": {
+        "tags": [
+          "User APIs"
+        ],
+        "summary": "Get User Details by ID",
+        "description": "Retrieve specific User Details within Lowcoder using their unique user ID.",
+        "operationId": "getUserDetails",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseViewObject"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/users/photo/{userId}": {
+      "get": {
+        "tags": [
+          "User Profile Photo APIs"
+        ],
+        "summary": "Upload users profile photo by ID",
+        "description": "Upload or change the profile photo of a specific User within Lowcoder using their user ID for identification.",
+        "operationId": "uploadUserProfilePhotoById",
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/users/me": {
+      "get": {
+        "tags": [
+          "User APIs"
+        ],
+        "summary": "Get current User Profile",
+        "description": "Retrieve the profile information of the current user within Lowcoder, including their identity, name, avatar, email, IP address, group memberships, and details of the current Organization / Workspace.",
+        "operationId": "getUserProfile",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseViewObject"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/users/currentUser": {
+      "get": {
+        "tags": [
+          "User APIs"
+        ],
+        "summary": "Get current User Information",
+        "description": "Retrieve comprehensive information about the current user within Lowcoder, including their ID, name, avatar URL, email, IP address and group memberships.",
+        "operationId": "getUserInfo",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseViewUserDetail"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/users/reset-password": {
       "post": {
         "tags": [
@@ -2071,19 +4092,19 @@
         }
       }
     },
-    "/api/query/execute-from-node": {
+    "/api/groups": {
       "post": {
         "tags": [
-          "Query Execution APIs"
+          "Group APIs"
         ],
-        "summary": "Execute query from node service",
-        "description": "Execute a data Query from a Node service within Lowcoder, facilitating data retrieval and processing. Node Service is used for extended Data Source Plugins.",
-        "operationId": "executeQueryFromNodeService",
+        "summary": "Create User Group",
+        "description": "Create a new User Group within the current Lowcoder Organization / Workspace for organizing and managing your Application users.",
+        "operationId": "createGroup",
         "requestBody": {
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/LibraryQueryRequestFromJs"
+                "$ref": "#/components/schemas/CreateGroupRequest"
               }
             }
           },
@@ -2095,7 +4116,7 @@
             "content": {
               "*/*": {
                 "schema": {
-                  "$ref": "#/components/schemas/QueryResultView"
+                  "$ref": "#/components/schemas/ResponseViewGroupView"
                 }
               }
             }
@@ -2103,103 +4124,34 @@
         }
       }
     },
-    "/api/query/execute": {
-      "post": {
+    "/api/groups/{groupId}/update": {
+      "put": {
         "tags": [
-          "Query Execution APIs"
+          "Group APIs"
         ],
-        "summary": "Execute query from API service",
-        "description": "Execute a data Query from an API service within Lowcoder, facilitating data retrieval and processing. API Service is used for standard Data Sources like Databases.",
-        "operationId": "executeQueryFromApiService",
+        "summary": "Update User Group",
+        "description": "Modify the properties and settings of an existing User Group within Lowcoder, identified by the unique ID of a User Group.",
+        "operationId": "updateGroup",
+        "parameters": [
+          {
+            "name": "groupId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
         "requestBody": {
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/QueryExecutionRequest"
+                "$ref": "#/components/schemas/UpdateGroupRequest"
               }
             }
           },
           "required": true
         },
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/QueryResultView"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/organizations/{orgId}/logo": {
-      "post": {
-        "tags": [
-          "Organization APIs"
-        ],
-        "summary": "Upload Organization Logo",
-        "description": "Upload an Organization logo for branding and identification for a Lowcoder Organization / Workspace.",
-        "operationId": "uploadOrganizationLogo",
-        "parameters": [
-          {
-            "name": "orgId",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "required": [
-                  "file"
-                ],
-                "type": "object",
-                "properties": {
-                  "file": {
-                    "$ref": "#/components/schemas/Part"
-                  }
-                }
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResponseViewBoolean"
-                }
-              }
-            }
-          }
-        }
-      },
-      "delete": {
-        "tags": [
-          "Organization APIs"
-        ],
-        "summary": "Delete Organization Logo",
-        "description": "Remove the logo associated with an Organization within Lowcoder.",
-        "operationId": "deleteOrganizationLogo",
-        "parameters": [
-          {
-            "name": "orgId",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
         "responses": {
           "200": {
             "description": "OK",
@@ -2214,19 +4166,29 @@
         }
       }
     },
-    "/api/organizations": {
-      "post": {
+    "/api/groups/{groupId}/role": {
+      "put": {
         "tags": [
-          "Organization APIs"
+          "Group Members APIs"
         ],
-        "summary": "Create a new Organization",
-        "description": "Create a new Organization (Workspace) within the Lowcoder platform as a encapsulated space for Applications, Users and Resources.",
-        "operationId": "createOrganization",
+        "summary": "Update User Group member role",
+        "description": "Modify the Role of a specific Member within a User Group in Lowcoder, ensuring proper access control.",
+        "operationId": "updateRoleForGroupMember",
+        "parameters": [
+          {
+            "name": "groupId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
         "requestBody": {
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/Organization"
+                "$ref": "#/components/schemas/UpdateRoleRequest"
               }
             }
           },
@@ -2238,39 +4200,7 @@
             "content": {
               "*/*": {
                 "schema": {
-                  "$ref": "#/components/schemas/ResponseViewOrgView"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/invitation": {
-      "post": {
-        "tags": [
-          "User invitation APIs"
-        ],
-        "summary": "Create user Invitation",
-        "description": "Create a generic User-Invitation within Lowcoder to invite new users to join the platform. Internally an invite Link based on inviting User and it's current Organization / Workspace is built.",
-        "operationId": "createUserInvitation",
-        "parameters": [
-          {
-            "name": "orgId",
-            "in": "query",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResponseViewInvitationVO"
+                  "$ref": "#/components/schemas/ResponseViewBoolean"
                 }
               }
             }
@@ -2320,31 +4250,51 @@
         }
       }
     },
-    "/api/groups": {
-      "post": {
+    "/api/groups/{groupId}/members": {
+      "get": {
         "tags": [
-          "Group APIs"
+          "Group Members APIs"
         ],
-        "summary": "Create User Group",
-        "description": "Create a new User Group within the current Lowcoder Organization / Workspace for organizing and managing your Application users.",
-        "operationId": "createGroup",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/CreateGroupRequest"
-              }
+        "summary": "List User Group Members",
+        "description": "Retrieve a list of Users / Members within a specific User Group in Lowcoder, showing the group's composition.",
+        "operationId": "listGroupMembers",
+        "parameters": [
+          {
+            "name": "groupId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
             }
           },
-          "required": true
-        },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 1
+            }
+          },
+          {
+            "name": "count",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 100
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "OK",
             "content": {
               "*/*": {
                 "schema": {
-                  "$ref": "#/components/schemas/ResponseViewGroupView"
+                  "$ref": "#/components/schemas/ResponseViewGroupMemberAggregateView"
                 }
               }
             }
@@ -2352,24 +4302,54 @@
         }
       }
     },
-    "/api/datasources/test": {
-      "post": {
+    "/api/groups/list": {
+      "get": {
         "tags": [
-          "Data Source APIs"
+          "Group APIs"
         ],
-        "summary": "Test data source",
-        "description": "Verify the functionality and connectivity of a data source within the Lowcoder platform, identified by its ID.",
-        "operationId": "testDatasource",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/UpsertDatasourceRequest"
+        "summary": "List User Groups",
+        "description": "Retrieve a list of User Groups within Lowcoder, providing an overview of available groups, based on the access rights of the currently impersonated User.",
+        "operationId": "listGroups",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseViewListGroupView"
+                }
               }
             }
+          }
+        }
+      }
+    },
+    "/api/groups/{groupId}/remove": {
+      "delete": {
+        "tags": [
+          "Group Members APIs"
+        ],
+        "summary": "Remove a User from User Group",
+        "description": "Remove a specific User from a User Group within Lowcoder, revoking their access to the Group resources.",
+        "operationId": "removeUserFromGroup",
+        "parameters": [
+          {
+            "name": "groupId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           },
-          "required": true
-        },
+          {
+            "name": "userId",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "OK",
@@ -2384,84 +4364,17 @@
         }
       }
     },
-    "/api/datasources/getPluginDynamicConfig": {
-      "post": {
+    "/api/groups/{groupId}/leave": {
+      "delete": {
         "tags": [
-          "Data Source APIs"
+          "Group Members APIs"
         ],
-        "summary": "Get data source dynamic config",
-        "description": "Get additional dynamic configuration parameter information of data source within Lowcoder.",
-        "operationId": "getDatasourceDynamicConfig",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "array",
-                "items": {
-                  "$ref": "#/components/schemas/GetPluginDynamicConfigRequestDTO"
-                }
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResponseViewListObject"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/datasources": {
-      "post": {
-        "tags": [
-          "Data Source APIs"
-        ],
-        "summary": "Create new data source",
-        "description": "Create a new data source in Lowcoder for data retrieval or storage.",
-        "operationId": "createDatasource",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/UpsertDatasourceRequest_Public"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "201": {
-            "description": "Created",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResponseViewDatasource_Public"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/applications/{applicationId}/publish": {
-      "post": {
-        "tags": [
-          "Application APIs"
-        ],
-        "summary": "Publish Application for users",
-        "description": "Set a Lowcoder Application identified by its ID as available to all selected Users or User-Groups. This is similar to the classic deployment. The Lowcoder Apps gets published in production mode.",
-        "operationId": "publicApplication",
+        "summary": "Remove current User from User Group",
+        "description": "Allow the current user to voluntarily leave a User Group in Lowcoder, removing themselves from the group's membership.",
+        "operationId": "leaveGroup",
         "parameters": [
           {
-            "name": "applicationId",
+            "name": "groupId",
             "in": "path",
             "required": true,
             "schema": {
@@ -2475,7 +4388,7 @@
             "content": {
               "*/*": {
                 "schema": {
-                  "$ref": "#/components/schemas/ResponseViewApplicationView"
+                  "$ref": "#/components/schemas/ResponseViewBoolean"
                 }
               }
             }
@@ -2483,202 +4396,64 @@
         }
       }
     },
-    "/api/applications/createFromTemplate": {
-      "post": {
+    "/api/groups/{groupId}": {
+      "delete": {
         "tags": [
-          "Application APIs"
+          "Group APIs"
         ],
-        "summary": "Create an Application from a predefined Template",
-        "description": "Use an Application-Template to create a new Application in an Organization where the authenticated or impersonated user has access.",
-        "operationId": "createApplicationFromTemplate",
+        "summary": "Delete User Group",
+        "description": "Permanently remove a User Group from Lowcoder using its unique ID.",
+        "operationId": "deleteGroup",
         "parameters": [
           {
-            "name": "templateId",
+            "name": "groupId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseViewBoolean"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/auth/config/{id}": {
+      "delete": {
+        "tags": [
+          "Authentication APIs"
+        ],
+        "summary": "Delete authentication configuration",
+        "description": "Delete a specific Lowcoder authentication configuration.",
+        "operationId": "deleteAuthConfig",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "delete",
             "in": "query",
-            "required": true,
+            "required": false,
             "schema": {
-              "type": "string"
+              "type": "boolean"
             }
           }
         ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResponseViewApplicationView"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/applications": {
-      "post": {
-        "tags": [
-          "Application APIs"
-        ],
-        "summary": "Create a new Application",
-        "description": "Create a new Lowcoder Application based on the Organization-ID where the authenticated or impersonated user has access.",
-        "operationId": " createApplication",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/CreateApplicationRequest"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResponseViewApplicationView"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/library-queries": {
-      "post": {
-        "tags": [
-          "Query Library APIs"
-        ],
-        "summary": "Create a Library for Data Queries",
-        "description": "Create a new Library Query within Lowcoder for storing and managing reusable Data Queries.",
-        "operationId": "createLibraryQuery",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/LibraryQuery"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResponseViewLibraryQueryView"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/library-queries/{libraryQueryId}/publish": {
-      "post": {
-        "tags": [
-          "Query Library APIs"
-        ],
-        "summary": "Publish a Data Query Library for usage",
-        "description": "Publish a Library Query for usage within Lowcoder, making it available for other users to utilize.",
-        "operationId": "publishLibraryQuery",
-        "parameters": [
-          {
-            "name": "libraryQueryId",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/LibraryQueryPublishRequest"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResponseViewLibraryQueryRecordMetaView"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/folders/{folderId}/permissions": {
-      "get": {
-        "tags": [
-          "Folder Permissions APIs"
-        ],
-        "summary": "Get Folder permissions",
-        "description": "Retrieve detailed information about permissions associated with a specific Application Folder within Lowcoder.",
-        "operationId": "listFolderPermissions",
-        "parameters": [
-          {
-            "name": "folderId",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResponseViewApplicationPermissionView"
-                }
-              }
-            }
-          }
-        }
-      },
-      "post": {
-        "tags": [
-          "Folder Permissions APIs"
-        ],
-        "summary": "Grant permissions to Folder",
-        "description": "Assign new permissions to a specific Application Folder within Lowcoder, allowing authorized users to access it.",
-        "operationId": "grantFolderPermissions",
-        "parameters": [
-          {
-            "name": "folderId",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/BatchAddPermissionRequest"
-              }
-            }
-          },
-          "required": true
-        },
         "responses": {
           "200": {
             "description": "OK",
@@ -2693,17 +4468,17 @@
         }
       }
     },
-    "/api/bundles/{bundleId}/publish": {
-      "post": {
+    "/api/auth/api-key/{id}": {
+      "delete": {
         "tags": [
-          "Bundle APIs"
+          "Authentication APIs"
         ],
-        "summary": "Publish Bundle for users",
-        "description": "Set a Lowcoder Bundle identified by its ID as available to all selected Users or User-Groups. This is similar to the classic deployment. The Lowcoder Bundle gets published in production mode.",
-        "operationId": "publicBundle",
+        "summary": "Delete API key",
+        "description": "Delete a specific API key associated with the current impersonated user.",
+        "operationId": "deleteApiKey",
         "parameters": [
           {
-            "name": "bundleId",
+            "name": "id",
             "in": "path",
             "required": true,
             "schema": {
@@ -2711,78 +4486,6 @@
             }
           }
         ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResponseViewBundleInfoView"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/bundles/{bundleId}/permissions": {
-      "get": {
-        "tags": [
-          "Bundle Permissions APIs"
-        ],
-        "summary": "Get Bundle permissions",
-        "description": "Retrieve detailed information about permissions associated with a specific Bundle Bundle within Lowcoder.",
-        "operationId": "listBundlePermissions",
-        "parameters": [
-          {
-            "name": "bundleId",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResponseViewBundlePermissionView"
-                }
-              }
-            }
-          }
-        }
-      },
-      "post": {
-        "tags": [
-          "Bundle Permissions APIs"
-        ],
-        "summary": "Grant permissions to Bundle",
-        "description": "Assign new permissions to a specific Bundle Bundle within Lowcoder, allowing authorized users to access it.",
-        "operationId": "grantBundlePermissions",
-        "parameters": [
-          {
-            "name": "bundleId",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/BatchAddPermissionRequest"
-              }
-            }
-          },
-          "required": true
-        },
         "responses": {
           "200": {
             "description": "OK",
@@ -3069,31 +4772,21 @@
         }
       }
     },
-    "/api/application/history-snapshots": {
-      "post": {
+    "/api/auth/configs": {
+      "get": {
         "tags": [
-          "Application History APIs"
+          "Authentication APIs"
         ],
-        "summary": "Create Application Snapshot",
-        "description": "Create a snapshot of an Application DSL within Lowcoder, capturing its current state for future reference.",
-        "operationId": "createApplicationSnapshot",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/ApplicationHistorySnapshotRequest"
-              }
-            }
-          },
-          "required": true
-        },
+        "summary": "Get available authentication configurations",
+        "description": "Retrieve a list of all available authentication configurations for the current selected Organization, based on the impersonated User",
+        "operationId": "listAuthConfigs",
         "responses": {
           "200": {
             "description": "OK",
             "content": {
               "*/*": {
                 "schema": {
-                  "$ref": "#/components/schemas/ResponseViewBoolean"
+                  "$ref": "#/components/schemas/ResponseViewListAbstractAuthConfig_Internal"
                 }
               }
             }
@@ -3101,578 +4794,21 @@
         }
       }
     },
-    "/api/state/healthCheck": {
-      "head": {
+    "/api/auth/api-keys": {
+      "get": {
         "tags": [
-          "Status checks APIs"
+          "Authentication APIs"
         ],
-        "summary": "Run health check",
-        "description": "Perform a health check within Lowcoder to ensure the system's overall operational health and availability.",
-        "operationId": "healthCheck",
+        "summary": "Get API keys of the current User",
+        "description": "Retrieve a list of LOwcoder API keys associated with the current impersonated user.",
+        "operationId": "listApiKeys",
         "responses": {
           "200": {
             "description": "OK",
             "content": {
               "*/*": {
                 "schema": {
-                  "$ref": "#/components/schemas/ResponseViewBoolean"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/users/userDetail/{id}": {
-      "get": {
-        "tags": [
-          "User APIs"
-        ],
-        "summary": "Get User Details by ID",
-        "description": "Retrieve specific User Details within Lowcoder using their unique user ID.",
-        "operationId": "getUserDetails",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResponseViewObject"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/users/photo/{userId}": {
-      "get": {
-        "tags": [
-          "User Profile Photo APIs"
-        ],
-        "summary": "Upload users profile photo by ID",
-        "description": "Upload or change the profile photo of a specific User within Lowcoder using their user ID for identification.",
-        "operationId": "uploadUserProfilePhotoById",
-        "parameters": [
-          {
-            "name": "userId",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
-    "/api/users/me": {
-      "get": {
-        "tags": [
-          "User APIs"
-        ],
-        "summary": "Get current User Profile",
-        "description": "Retrieve the profile information of the current user within Lowcoder, including their identity, name, avatar, email, IP address, group memberships, and details of the current Organization / Workspace.",
-        "operationId": "getUserProfile",
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResponseViewObject"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/users/currentUser": {
-      "get": {
-        "tags": [
-          "User APIs"
-        ],
-        "summary": "Get current User Information",
-        "description": "Retrieve comprehensive information about the current user within Lowcoder, including their ID, name, avatar URL, email, IP address and group memberships.",
-        "operationId": "getUserInfo",
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResponseViewUserDetail"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/serverSettings": {
-      "get": {
-        "tags": [
-          "Server Setting APIs"
-        ],
-        "summary": "Get Lowcoder server settings",
-        "description": "Retrieve the list of server settings for Lowcoder.",
-        "operationId": "serverSettings",
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "type": "object",
-                  "additionalProperties": {
-                    "type": "string"
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/organizations/{orgId}/members": {
-      "get": {
-        "tags": [
-          "Organization Member APIs"
-        ],
-        "summary": "List Organization Members",
-        "description": "Retrieve a list of members belonging to an Organization within Lowcoder.",
-        "operationId": "listOrganizationMembers",
-        "parameters": [
-          {
-            "name": "orgId",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "page",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "integer",
-              "format": "int32",
-              "default": 0
-            }
-          },
-          {
-            "name": "count",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "integer",
-              "format": "int32",
-              "default": 1000
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResponseViewOrgMemberListView"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/organizations/{orgId}/datasourceTypes": {
-      "get": {
-        "tags": [
-          "Organization Member APIs"
-        ],
-        "summary": "Get supported data source types for Organization",
-        "description": "Retrieve a list of supported datasource types for an Organization within Lowcoder.",
-        "operationId": "getOrganizationDatasourceTypes",
-        "parameters": [
-          {
-            "name": "orgId",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResponseViewListDatasourceMetaInfo"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/organizations/{orgId}/api-usage": {
-      "get": {
-        "tags": [
-          "Organization APIs"
-        ],
-        "summary": "Get the api usage count for the org",
-        "description": "Calculate the used api calls for this organization and return the count",
-        "operationId": "getOrgApiUsageCount",
-        "parameters": [
-          {
-            "name": "orgId",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "lastMonthOnly",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "boolean"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResponseViewLong"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/invitation/{invitationId}/invite": {
-      "get": {
-        "tags": [
-          "User invitation APIs"
-        ],
-        "summary": "Get Invitation",
-        "description": "Retrieve information about a specific Invitation within Lowcoder, including details about the Invitee and the connected Organization / Workspace.",
-        "operationId": "getInvitation",
-        "parameters": [
-          {
-            "name": "invitationId",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResponseViewObject"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/invitation/{invitationId}": {
-      "get": {
-        "tags": [
-          "User invitation APIs"
-        ],
-        "summary": "Invite User",
-        "description": "Proceed the actual Invite for User to an Lowcoder Organization / Workspace using an existing Invitation identified by its ID.",
-        "operationId": "inviteUser",
-        "parameters": [
-          {
-            "name": "invitationId",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResponseViewInvitationVO"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/groups/{groupId}/members": {
-      "get": {
-        "tags": [
-          "Group Members APIs"
-        ],
-        "summary": "List User Group Members",
-        "description": "Retrieve a list of Users / Members within a specific User Group in Lowcoder, showing the group's composition.",
-        "operationId": "listGroupMembers",
-        "parameters": [
-          {
-            "name": "groupId",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "page",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "integer",
-              "format": "int32",
-              "default": 1
-            }
-          },
-          {
-            "name": "count",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "integer",
-              "format": "int32",
-              "default": 100
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResponseViewGroupMemberAggregateView"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/groups/list": {
-      "get": {
-        "tags": [
-          "Group APIs"
-        ],
-        "summary": "List User Groups",
-        "description": "Retrieve a list of User Groups within Lowcoder, providing an overview of available groups, based on the access rights of the currently impersonated User.",
-        "operationId": "listGroups",
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResponseViewListGroupView"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/datasources/{datasourceId}/structure": {
-      "get": {
-        "tags": [
-          "Data Source APIs"
-        ],
-        "summary": "Get data source structure",
-        "description": "Retrieve the structure and schema of a data source within Lowcoder, identified by its ID.",
-        "operationId": "getDatasourceStructure",
-        "parameters": [
-          {
-            "name": "datasourceId",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "ignoreCache",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "boolean",
-              "default": false
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResponseViewDatasourceStructure"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/datasources/listByOrg": {
-      "get": {
-        "tags": [
-          "Data Source APIs"
-        ],
-        "summary": "Get data sources by Organization ID",
-        "description": "List data sources associated with a specific Organization-ID within Lowcoder.",
-        "operationId": "listDatasourcesByOrg",
-        "parameters": [
-          {
-            "name": "orgId",
-            "in": "query",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResponseViewListDatasourceView_Public"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/datasources/listByApp": {
-      "get": {
-        "tags": [
-          "Data Source APIs"
-        ],
-        "summary": "Get data sources by Application ID",
-        "description": "List data sources associated with a specific Application-ID within Lowcoder.",
-        "operationId": "listDatasourcesByApp",
-        "parameters": [
-          {
-            "name": "appId",
-            "in": "query",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResponseViewListDatasourceView_Public"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/datasources/jsDatasourcePlugins": {
-      "get": {
-        "tags": [
-          "Data Source APIs"
-        ],
-        "summary": "Get Node service plugins",
-        "description": "Retrieve a list of node service plugins available within Lowcoder.",
-        "operationId": "listNodeServicePlugins",
-        "parameters": [
-          {
-            "name": "appId",
-            "in": "query",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResponseViewListDatasource"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/datasources/info": {
-      "get": {
-        "tags": [
-          "Data Source APIs"
-        ],
-        "summary": "Get data source information",
-        "description": "Obtain information related to a data source within Lowcoder.",
-        "operationId": "getDatasourceInfo",
-        "parameters": [
-          {
-            "name": "datasourceId",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResponseViewObject"
+                  "$ref": "#/components/schemas/ResponseViewListAPIKey"
                 }
               }
             }
@@ -3701,279 +4837,6 @@
         "responses": {
           "200": {
             "description": "OK"
-          }
-        }
-      }
-    },
-    "/api/applications/{applicationId}/view_marketplace": {
-      "get": {
-        "tags": [
-          "Application APIs"
-        ],
-        "summary": "Get Marketplace Application data in view mode",
-        "description": "Retrieve the DSL data of a Lowcoder Application in view-mode by its ID for the Marketplace.",
-        "operationId": "getMarketplaceApplicationDataInViewMode",
-        "parameters": [
-          {
-            "name": "applicationId",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResponseViewApplicationView"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/applications/{applicationId}/view_agency": {
-      "get": {
-        "tags": [
-          "Application APIs"
-        ],
-        "summary": "Get Agency profile Application data in view mode",
-        "description": "Retrieve the DSL data of a Lowcoder Application in view-mode by its ID marked as Agency Profile.",
-        "operationId": "getAgencyProfileApplicationDataInViewMode",
-        "parameters": [
-          {
-            "name": "applicationId",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResponseViewApplicationView"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/applications/{applicationId}/view": {
-      "get": {
-        "tags": [
-          "Application APIs"
-        ],
-        "summary": "Get Application data in view mode",
-        "description": "Retrieve the DSL data of a Lowcoder Application in view-mode by its ID.",
-        "operationId": "getApplicatioDataInViewMode",
-        "parameters": [
-          {
-            "name": "applicationId",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResponseViewApplicationView"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/applications/recycle/list": {
-      "get": {
-        "tags": [
-          "Application APIs"
-        ],
-        "summary": "List recycled Applications in bin",
-        "description": "List all the recycled Lowcoder Applications in the recycle bin where the authenticated or impersonated user has access.",
-        "operationId": "listRecycledApplications",
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResponseViewListApplicationInfoView"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/applications/marketplace-apps": {
-      "get": {
-        "tags": [
-          "Application APIs"
-        ],
-        "summary": "List Marketplace Applications",
-        "description": "Retrieve a list of Lowcoder Applications that are published to the Marketplace",
-        "operationId": "listMarketplaceApplications",
-        "parameters": [
-          {
-            "name": "applicationType",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResponseViewListMarketplaceApplicationInfoView"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/applications/list": {
-      "get": {
-        "tags": [
-          "Application APIs"
-        ],
-        "summary": "List Applications of current User",
-        "description": "Retrieve a list of Lowcoder Applications accessible by the authenticated or impersonated user.",
-        "operationId": "listApplications",
-        "parameters": [
-          {
-            "name": "applicationType",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          },
-          {
-            "name": "applicationStatus",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "string",
-              "enum": [
-                "NORMAL",
-                "RECYCLED",
-                "DELETED"
-              ]
-            }
-          },
-          {
-            "name": "withContainerSize",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "boolean",
-              "default": true
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResponseViewListApplicationInfoView"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/applications/home": {
-      "get": {
-        "tags": [
-          "Application APIs"
-        ],
-        "summary": "Get the homepage Application of current User",
-        "description": "Retrieve the first displayed Lowcoder Application for an authenticated or impersonated user.",
-        "operationId": "getUserHomepageApplication",
-        "parameters": [
-          {
-            "name": "applicationType",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "integer",
-              "format": "int32",
-              "default": 0
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResponseViewUserHomepageView"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/applications/agency-profiles": {
-      "get": {
-        "tags": [
-          "Application APIs"
-        ],
-        "summary": "List agency profile Applications",
-        "description": "Retrieve a list of Lowcoder Applications that are set as agency profiles",
-        "operationId": "listAgencyProfileApplications",
-        "parameters": [
-          {
-            "name": "applicationType",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResponseViewListMarketplaceApplicationInfoView"
-                }
-              }
-            }
           }
         }
       }
@@ -4035,39 +4898,21 @@
         }
       }
     },
-    "/api/library-query-records": {
-      "get": {
+    "/api/state/healthCheck": {
+      "head": {
         "tags": [
-          "Library Queries Record APIs"
+          "Status checks APIs"
         ],
-        "summary": "Get Library Query Records",
-        "description": "Retrieve a list of Library Query Records, which store information related to executed queries within Lowcoder and the current Organization / Workspace by the impersonated User",
-        "operationId": "listLibraryQueryRecords",
-        "parameters": [
-          {
-            "name": "libraryQueryId",
-            "in": "query",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "libraryQueryRecordId",
-            "in": "query",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
+        "summary": "Run health check",
+        "description": "Perform a health check within Lowcoder to ensure the system's overall operational health and availability.",
+        "operationId": "healthCheck",
         "responses": {
           "200": {
             "description": "OK",
             "content": {
               "*/*": {
                 "schema": {
-                  "$ref": "#/components/schemas/ResponseViewMapStringObject"
+                  "$ref": "#/components/schemas/ResponseViewBoolean"
                 }
               }
             }
@@ -4075,500 +4920,24 @@
         }
       }
     },
-    "/api/library-query-records/listByLibraryQueryId": {
+    "/api/serverSettings": {
       "get": {
         "tags": [
-          "Library Queries Record APIs"
+          "Server Setting APIs"
         ],
-        "summary": "Get Library Query Record",
-        "description": "Retrieve a specific Library Query Record within Lowcoder using the associated library query ID.",
-        "operationId": "getLibraryQueryRecord",
-        "parameters": [
-          {
-            "name": "libraryQueryId",
-            "in": "query",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
+        "summary": "Get Lowcoder server settings",
+        "description": "Retrieve the list of server settings for Lowcoder.",
+        "operationId": "serverSettings",
         "responses": {
           "200": {
             "description": "OK",
             "content": {
               "*/*": {
                 "schema": {
-                  "$ref": "#/components/schemas/ResponseViewListLibraryQueryRecordMetaView"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/library-queries/listByOrg": {
-      "get": {
-        "tags": [
-          "Query Library APIs"
-        ],
-        "summary": "Get Data Query Libraries for organization",
-        "description": "Retrieve a list of Library Queries for a specific Organization within Lowcoder.",
-        "operationId": "listLibrartQueriesByOrg",
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResponseViewListLibraryQueryView"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/library-queries/dropDownList": {
-      "get": {
-        "tags": [
-          "Query Library APIs"
-        ],
-        "summary": "Get Data Query Libraries in dropdown format",
-        "description": "Retrieve Library Queries in a dropdown format within Lowcoder, suitable for selection in user interfaces.",
-        "operationId": "listLibraryQueriesForDropDown",
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResponseViewListLibraryQueryAggregateView"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/folders/elements": {
-      "get": {
-        "tags": [
-          "Folder APIs"
-        ],
-        "summary": "Get Folder contents",
-        "description": "Retrieve the contents of an Application Folder within Lowcoder, including Applications and Subfolders.",
-        "operationId": "listFolderContents",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "applicationType",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "string",
-              "enum": [
-                "APPLICATION",
-                "MODULE",
-                "COMPOUND_APPLICATION"
-              ]
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResponseViewListObject"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/bundles/{bundleId}/view": {
-      "get": {
-        "tags": [
-          "Bundle APIs"
-        ],
-        "summary": "Get Bundle data in view mode",
-        "description": "Retrieve the data of a Lowcoder Bundle in view-mode by its ID.",
-        "operationId": "getBundleDataInViewMode",
-        "parameters": [
-          {
-            "name": "bundleId",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResponseViewBundleInfoView"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/bundles/{bundleId}/view_marketplace": {
-      "get": {
-        "tags": [
-          "Bundle APIs"
-        ],
-        "summary": "Get Marketplace Bundle data in view mode",
-        "description": "Retrieve the DSL data of a Lowcoder Bundle in view-mode by its ID for the Marketplace.",
-        "operationId": "getMarketplaceBundleDataInViewMode",
-        "parameters": [
-          {
-            "name": "bundleId",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResponseViewBundleInfoView"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/bundles/{bundleId}/view_agency": {
-      "get": {
-        "tags": [
-          "Bundle APIs"
-        ],
-        "summary": "Get Agency profile Bundle data in view mode",
-        "description": "Retrieve the DSL data of a Lowcoder Bundle in view-mode by its ID marked as Agency Profile.",
-        "operationId": "getAgencyProfileBundleDataInViewMode",
-        "parameters": [
-          {
-            "name": "bundleId",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResponseViewBundleInfoView"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/bundles/{bundleId}/elements": {
-      "get": {
-        "tags": [
-          "Bundle APIs"
-        ],
-        "summary": "Get Bundle contents",
-        "description": "Retrieve the contents of an Bundle Bundle within Lowcoder, including Bundles.",
-        "operationId": "listBundleContents",
-        "parameters": [
-          {
-            "name": "bundleId",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "applicationType",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "string",
-              "enum": [
-                "APPLICATION",
-                "MODULE",
-                "COMPOUND_APPLICATION"
-              ]
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResponseViewListObject"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/bundles/recycle/list": {
-      "get": {
-        "tags": [
-          "Bundle APIs"
-        ],
-        "summary": "List recycled Bundles in bin",
-        "description": "List all the recycled Lowcoder Bundles in the recycle bin where the authenticated or impersonated user has access.",
-        "operationId": "listRecycledBundles",
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResponseViewListBundleInfoView"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/bundles/marketplace-bundles": {
-      "get": {
-        "tags": [
-          "Bundle APIs"
-        ],
-        "summary": "List Marketplace Bundles",
-        "description": "Retrieve a list of Lowcoder Bundles that are published to the Marketplace",
-        "operationId": "listMarketplaceBundles",
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResponseViewListMarketplaceBundleInfoView"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/bundles/list": {
-      "get": {
-        "tags": [
-          "Bundle APIs"
-        ],
-        "summary": "List Bundles of current User",
-        "description": "Retrieve a list of Lowcoder Bundles accessible by the authenticated or impersonated user.",
-        "operationId": "listBundles",
-        "parameters": [
-          {
-            "name": "bundleStatus",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "string",
-              "enum": [
-                "NORMAL",
-                "RECYCLED",
-                "DELETED"
-              ]
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResponseViewListBundleInfoView"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/bundles/agency-profiles": {
-      "get": {
-        "tags": [
-          "Bundle APIs"
-        ],
-        "summary": "List agency profile Bundles",
-        "description": "Retrieve a list of Lowcoder Bundles that are set as agency profiles",
-        "operationId": "listAgencyProfileBundles",
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResponseViewListMarketplaceBundleInfoView"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/auth/configs": {
-      "get": {
-        "tags": [
-          "Authentication APIs"
-        ],
-        "summary": "Get available authentication configurations",
-        "description": "Retrieve a list of all available authentication configurations for the current selected Organization, based on the impersonated User",
-        "operationId": "listAuthConfigs",
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResponseViewListAbstractAuthConfig_Internal"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/auth/api-keys": {
-      "get": {
-        "tags": [
-          "Authentication APIs"
-        ],
-        "summary": "Get API keys of the current User",
-        "description": "Retrieve a list of LOwcoder API keys associated with the current impersonated user.",
-        "operationId": "listApiKeys",
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResponseViewListAPIKey"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/application/history-snapshots/{applicationId}": {
-      "get": {
-        "tags": [
-          "Application History APIs"
-        ],
-        "summary": "List Application Snapshots",
-        "description": "Retrieve a list of Snapshots associated with a specific Application within Lowcoder.",
-        "operationId": "listApplicationSnapshots",
-        "parameters": [
-          {
-            "name": "applicationId",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "page",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "integer",
-              "format": "int32",
-              "default": 0
-            }
-          },
-          {
-            "name": "size",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "integer",
-              "format": "int32",
-              "default": 10
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResponseViewMapStringObject"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/application/history-snapshots/{applicationId}/{snapshotId}": {
-      "get": {
-        "tags": [
-          "Application History APIs"
-        ],
-        "summary": "Retrieve Application Snapshot",
-        "description": "Retrieve a specific Application Snapshot within Lowcoder using the Application and Snapshot IDs.",
-        "operationId": "getApplicationSnapshot",
-        "parameters": [
-          {
-            "name": "applicationId",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "snapshotId",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResponseViewHistorySnapshotDslView"
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "string"
+                  }
                 }
               }
             }
@@ -4593,375 +4962,6 @@
           }
         },
         "description": "The Health / Root Endpoint"
-      }
-    },
-    "/api/organizations/{orgId}/remove": {
-      "delete": {
-        "tags": [
-          "Organization APIs"
-        ],
-        "summary": "Delete Organization by ID",
-        "description": "Permanently remove an User from an Organization in Lowcoder using its unique IDs.",
-        "operationId": "deleteOrganization",
-        "parameters": [
-          {
-            "name": "orgId",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "userId",
-            "in": "query",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResponseViewBoolean"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/organizations/{orgId}/leave": {
-      "delete": {
-        "tags": [
-          "Organization Member APIs"
-        ],
-        "summary": "Remove current user from Organization",
-        "description": "Allow the current user to voluntarily leave an Organization in Lowcoder, removing themselves from the organization's membership.",
-        "operationId": "leaveOrganization",
-        "parameters": [
-          {
-            "name": "orgId",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResponseViewBoolean"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/organizations/{orgId}": {
-      "delete": {
-        "tags": [
-          "Organization APIs"
-        ],
-        "summary": "Delete Organization by ID",
-        "description": "Permanently remove an Organization from Lowcoder using its unique ID.",
-        "operationId": "deleteOrganization_1",
-        "parameters": [
-          {
-            "name": "orgId",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResponseViewBoolean"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/groups/{groupId}/remove": {
-      "delete": {
-        "tags": [
-          "Group Members APIs"
-        ],
-        "summary": "Remove a User from User Group",
-        "description": "Remove a specific User from a User Group within Lowcoder, revoking their access to the Group resources.",
-        "operationId": "removeUserFromGroup",
-        "parameters": [
-          {
-            "name": "groupId",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "userId",
-            "in": "query",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResponseViewBoolean"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/groups/{groupId}/leave": {
-      "delete": {
-        "tags": [
-          "Group Members APIs"
-        ],
-        "summary": "Remove current User from User Group",
-        "description": "Allow the current user to voluntarily leave a User Group in Lowcoder, removing themselves from the group's membership.",
-        "operationId": "leaveGroup",
-        "parameters": [
-          {
-            "name": "groupId",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResponseViewBoolean"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/groups/{groupId}": {
-      "delete": {
-        "tags": [
-          "Group APIs"
-        ],
-        "summary": "Delete User Group",
-        "description": "Permanently remove a User Group from Lowcoder using its unique ID.",
-        "operationId": "deleteGroup",
-        "parameters": [
-          {
-            "name": "groupId",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResponseViewBoolean"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/library-query-records/{libraryQueryRecordId}": {
-      "delete": {
-        "tags": [
-          "Library Queries Record APIs"
-        ],
-        "summary": "Delete Library Query Record",
-        "description": "Permanently remove a specific Library Query Record from Lowcoder using its unique record ID.",
-        "operationId": "deleteLibrartQueryRecord",
-        "parameters": [
-          {
-            "name": "libraryQueryRecordId",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
-    "/api/folders/{id}": {
-      "delete": {
-        "tags": [
-          "Folder APIs"
-        ],
-        "summary": "Delete Folder",
-        "description": "Permanently remove an Application Folder from Lowcoder using its unique ID.",
-        "operationId": "deleteFolder",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResponseViewVoid"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/bundles/{id}": {
-      "delete": {
-        "tags": [
-          "Bundle APIs"
-        ],
-        "summary": "Delete Bundle",
-        "description": "Permanently remove an Application Bundle from Lowcoder using its unique ID.",
-        "operationId": "deleteBundle",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResponseViewVoid"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/auth/config/{id}": {
-      "delete": {
-        "tags": [
-          "Authentication APIs"
-        ],
-        "summary": "Delete authentication configuration",
-        "description": "Delete a specific Lowcoder authentication configuration.",
-        "operationId": "deleteAuthConfig",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "delete",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "boolean"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResponseViewVoid"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/auth/api-key/{id}": {
-      "delete": {
-        "tags": [
-          "Authentication APIs"
-        ],
-        "summary": "Delete API key",
-        "description": "Delete a specific API key associated with the current impersonated user.",
-        "operationId": "deleteApiKey",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResponseViewVoid"
-                }
-              }
-            }
-          }
-        }
       }
     }
   },
