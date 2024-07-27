@@ -4947,7 +4947,9 @@
     },
     "/": {
       "get": {
-        "tags": ["default"],
+        "tags": [
+          "default"
+        ],
         "operationId": "index",
         "responses": {
           "200": {
@@ -8253,7 +8255,7 @@
         "type": "http",
         "scheme": "bearer",
         "bearerFormat": "JWT",
-        "description": "API Key Authentication with a Bearer token. Copy your API Key and prefix it here with 'Bearer ' (e.g. 'Bearer eyJhbGciO...'",
+        "description": "API Key Authentication with a Bearer token. Copy your API Key and prefix it here with 'Bearer ' (e.g. 'Bearer eyJhbGciO...'"
       }
     }
   },
