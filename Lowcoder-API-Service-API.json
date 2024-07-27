@@ -48,7 +48,7 @@
   ],
   "security": [
     {
-      "API Key": []
+      "bearerAuth": []
     }
   ],
   "paths": {
@@ -8361,13 +8361,11 @@
       }
     },
     "securitySchemes": {
-      "API Key": {
-        "type": "apiKey",
-        "description": "API Key Authentication with a Bearer token. Copy your API Key and prefix it here with 'Bearer ' (e.g. 'Bearer eyJhbGciO...'",
-        "name": "Authorization",
-        "in": "header",
+      "bearerAuth": {
+        "type": "http",
         "scheme": "bearer",
-        "bearerFormat": "JWT"
+        "bearerFormat": "JWT",
+        "description": "API Key Authentication with a Bearer token. Copy your API Key and prefix it here with 'Bearer ' (e.g. 'Bearer eyJhbGciO...'",
       }
     }
   },
