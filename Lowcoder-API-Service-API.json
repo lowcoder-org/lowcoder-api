@@ -5169,7 +5169,7 @@
             ]
           },
           "organizationDomain": {
-            "$ref": "#/components/schemas/OrganizationDomain"
+            "type": "object"
           },
           "commonSettings": {
             "type": "object",
@@ -5459,7 +5459,7 @@
             "format": "int64"
           },
           "datasourceConfig": {
-            "$ref": "#/components/schemas/DatasourceConnectionConfig_Public"
+            "type": "object"
           }
         }
       },
@@ -5933,13 +5933,13 @@
           "subFolders": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/FolderInfoView"
+              "type": "object"
             }
           },
           "subApplications": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/ApplicationInfoView"
+              "type": "object"
             }
           },
           "createTime": {
