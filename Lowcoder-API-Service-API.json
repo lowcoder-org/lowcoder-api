@@ -17,7 +17,7 @@
   "servers": [
     {
       "url": "{scheme}://{domain}:{port}{basePath}",
-      "description": "Lowcoder Self-hosted Installation API Access",
+      "description": "Supabase Self-hosted Installation API Access",
       "variables": {
         "scheme": {
           "description": "HTTP scheme",
@@ -28,12 +28,12 @@
           ]
         },
         "domain": {
-          "description": "Lowcoder IP address or domain",
+          "description": "Supabase IP address or domain",
           "default": "localhost"
         },
         "port": {
           "description": "Port",
-          "default": "3000"
+          "default": "8000"
         },
         "basePath": {
           "description": "Base path",
@@ -42,8 +42,8 @@
       }
     },
     {
-      "url": "https://api-service.lowcoder.cloud",
-      "description": "Lowcoder Community Edition: Public Cloud API Access"
+      "url": "https://api.supabase.io",
+      "description": "Supabase Public Cloud API Access"
     }
   ],
   "security": [
