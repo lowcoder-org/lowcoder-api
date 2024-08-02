@@ -4813,7 +4813,7 @@
             "maxLength": 256,
             "pattern": "/^(?!SUPABASE_).*/",
             "description": "Secret name must not start with the SUPABASE_ prefix.",
-            "example": "string"
+            "example": "BACKEND_SERVICE_"
           },
           "value": {
             "type": "string",
