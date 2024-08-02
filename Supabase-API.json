@@ -37,7 +37,7 @@
         ],
         "security": [
           {
-            "bearer": []
+            "bearerAuth": []
           }
         ]
       },
@@ -86,7 +86,7 @@
         ],
         "security": [
           {
-            "bearer": []
+            "bearerAuth": []
           }
         ]
       },
@@ -125,7 +125,7 @@
         ],
         "security": [
           {
-            "bearer": []
+            "bearerAuth": []
           }
         ]
       }
@@ -166,7 +166,7 @@
         ],
         "security": [
           {
-            "bearer": []
+            "bearerAuth": []
           }
         ]
       }
@@ -197,7 +197,7 @@
         ],
         "security": [
           {
-            "bearer": []
+            "bearerAuth": []
           }
         ]
       },
@@ -232,7 +232,7 @@
         ],
         "security": [
           {
-            "bearer": []
+            "bearerAuth": []
           }
         ]
       }
@@ -266,7 +266,7 @@
         ],
         "security": [
           {
-            "bearer": []
+            "bearerAuth": []
           }
         ]
       },
@@ -304,7 +304,7 @@
         ],
         "security": [
           {
-            "bearer": []
+            "bearerAuth": []
           }
         ]
       }
@@ -479,7 +479,7 @@
         ],
         "security": [
           {
-            "bearer": []
+            "bearerAuth": []
           }
         ]
       }
@@ -518,7 +518,7 @@
         ],
         "security": [
           {
-            "bearer": []
+            "bearerAuth": []
           }
         ]
       }
@@ -563,7 +563,7 @@
         ],
         "security": [
           {
-            "bearer": []
+            "bearerAuth": []
           }
         ]
       }
@@ -609,7 +609,7 @@
         ],
         "security": [
           {
-            "bearer": []
+            "bearerAuth": []
           }
         ]
       },
@@ -660,7 +660,7 @@
         ],
         "security": [
           {
-            "bearer": []
+            "bearerAuth": []
           }
         ]
       },
@@ -694,7 +694,7 @@
         ],
         "security": [
           {
-            "bearer": []
+            "bearerAuth": []
           }
         ]
       }
@@ -739,12 +739,12 @@
         ],
         "security": [
           {
-            "bearer": []
+            "bearerAuth": []
           }
         ]
       },
       "delete": {
-        "operationId": "v1-Delete hostname config",
+        "operationId": "v1-Delete-hostname-config",
         "summary": "[Beta] Deletes a project's custom hostname configuration",
         "parameters": [
           {
@@ -775,7 +775,7 @@
         ],
         "security": [
           {
-            "bearer": []
+            "bearerAuth": []
           }
         ]
       }
@@ -830,7 +830,7 @@
         ],
         "security": [
           {
-            "bearer": []
+            "bearerAuth": []
           }
         ]
       }
@@ -875,7 +875,7 @@
         ],
         "security": [
           {
-            "bearer": []
+            "bearerAuth": []
           }
         ]
       }
@@ -920,7 +920,7 @@
         ],
         "security": [
           {
-            "bearer": []
+            "bearerAuth": []
           }
         ]
       }
@@ -965,7 +965,7 @@
         ],
         "security": [
           {
-            "bearer": []
+            "bearerAuth": []
           }
         ]
       }
@@ -1013,7 +1013,7 @@
         ],
         "security": [
           {
-            "bearer": []
+            "bearerAuth": []
           }
         ]
       }
@@ -1058,7 +1058,7 @@
         ],
         "security": [
           {
-            "bearer": []
+            "bearerAuth": []
           }
         ]
       }
@@ -1113,7 +1113,7 @@
         ],
         "security": [
           {
-            "bearer": []
+            "bearerAuth": []
           }
         ]
       }
@@ -1158,7 +1158,7 @@
         ],
         "security": [
           {
-            "bearer": []
+            "bearerAuth": []
           }
         ]
       },
@@ -1211,7 +1211,7 @@
         ],
         "security": [
           {
-            "bearer": []
+            "bearerAuth": []
           }
         ]
       }
@@ -1256,7 +1256,7 @@
         ],
         "security": [
           {
-            "bearer": []
+            "bearerAuth": []
           }
         ]
       },
@@ -1309,7 +1309,7 @@
         ],
         "security": [
           {
-            "bearer": []
+            "bearerAuth": []
           }
         ]
       }
@@ -1351,7 +1351,7 @@
         ],
         "security": [
           {
-            "bearer": []
+            "bearerAuth": []
           }
         ]
       }
@@ -1400,7 +1400,7 @@
         ],
         "security": [
           {
-            "bearer": []
+            "bearerAuth": []
           }
         ]
       },
@@ -1450,7 +1450,7 @@
         ],
         "security": [
           {
-            "bearer": []
+            "bearerAuth": []
           }
         ]
       },
@@ -1507,7 +1507,7 @@
         ],
         "security": [
           {
-            "bearer": []
+            "bearerAuth": []
           }
         ]
       }
@@ -1552,7 +1552,7 @@
         ],
         "security": [
           {
-            "bearer": []
+            "bearerAuth": []
           }
         ]
       },
@@ -1605,7 +1605,7 @@
         ],
         "security": [
           {
-            "bearer": []
+            "bearerAuth": []
           }
         ]
       }
@@ -1660,7 +1660,7 @@
         ],
         "security": [
           {
-            "bearer": []
+            "bearerAuth": []
           }
         ]
       }
@@ -1705,7 +1705,7 @@
         ],
         "security": [
           {
-            "bearer": []
+            "bearerAuth": []
           }
         ]
       },
@@ -1741,7 +1741,7 @@
         ],
         "security": [
           {
-            "bearer": []
+            "bearerAuth": []
           }
         ]
       }
@@ -1796,7 +1796,7 @@
         ],
         "security": [
           {
-            "bearer": []
+            "bearerAuth": []
           }
         ]
       }
@@ -1851,7 +1851,7 @@
         ],
         "security": [
           {
-            "bearer": []
+            "bearerAuth": []
           }
         ]
       }
@@ -1906,7 +1906,7 @@
         ],
         "security": [
           {
-            "bearer": []
+            "bearerAuth": []
           }
         ]
       }
@@ -1951,7 +1951,7 @@
         ],
         "security": [
           {
-            "bearer": []
+            "bearerAuth": []
           }
         ]
       }
@@ -1996,7 +1996,7 @@
         ],
         "security": [
           {
-            "bearer": []
+            "bearerAuth": []
           }
         ]
       }
@@ -2038,7 +2038,7 @@
         ],
         "security": [
           {
-            "bearer": []
+            "bearerAuth": []
           }
         ]
       }
@@ -2073,7 +2073,7 @@
         ],
         "security": [
           {
-            "bearer": []
+            "bearerAuth": []
           }
         ]
       }
@@ -2121,7 +2121,7 @@
         ],
         "security": [
           {
-            "bearer": []
+            "bearerAuth": []
           }
         ]
       }
@@ -2169,7 +2169,7 @@
         ],
         "security": [
           {
-            "bearer": []
+            "bearerAuth": []
           }
         ]
       }
@@ -2243,7 +2243,7 @@
         ],
         "security": [
           {
-            "bearer": []
+            "bearerAuth": []
           }
         ]
       }
@@ -2285,7 +2285,7 @@
         ],
         "security": [
           {
-            "bearer": []
+            "bearerAuth": []
           }
         ]
       },
@@ -2335,7 +2335,7 @@
         ],
         "security": [
           {
-            "bearer": []
+            "bearerAuth": []
           }
         ]
       }
@@ -2417,7 +2417,7 @@
         ],
         "security": [
           {
-            "bearer": []
+            "bearerAuth": []
           }
         ]
       },
@@ -2470,7 +2470,7 @@
         ],
         "security": [
           {
-            "bearer": []
+            "bearerAuth": []
           }
         ]
       }
@@ -2515,7 +2515,7 @@
         ],
         "security": [
           {
-            "bearer": []
+            "bearerAuth": []
           }
         ]
       },
@@ -2568,7 +2568,7 @@
         ],
         "security": [
           {
-            "bearer": []
+            "bearerAuth": []
           }
         ]
       }
@@ -2620,7 +2620,7 @@
         ],
         "security": [
           {
-            "bearer": []
+            "bearerAuth": []
           }
         ]
       },
@@ -2663,7 +2663,7 @@
         ],
         "security": [
           {
-            "bearer": []
+            "bearerAuth": []
           }
         ]
       }
@@ -2713,7 +2713,7 @@
         ],
         "security": [
           {
-            "bearer": []
+            "bearerAuth": []
           }
         ]
       },
@@ -2761,7 +2761,7 @@
         ],
         "security": [
           {
-            "bearer": []
+            "bearerAuth": []
           }
         ]
       }
@@ -2816,7 +2816,7 @@
         ],
         "security": [
           {
-            "bearer": []
+            "bearerAuth": []
           }
         ]
       }
@@ -2854,7 +2854,7 @@
         ],
         "security": [
           {
-            "bearer": []
+            "bearerAuth": []
           }
         ]
       }
@@ -2964,7 +2964,7 @@
         ],
         "security": [
           {
-            "bearer": []
+            "bearerAuth": []
           }
         ]
       },
@@ -3011,7 +3011,7 @@
         ],
         "security": [
           {
-            "bearer": []
+            "bearerAuth": []
           }
         ]
       }
@@ -3067,7 +3067,7 @@
         ],
         "security": [
           {
-            "bearer": []
+            "bearerAuth": []
           }
         ]
       },
@@ -3185,7 +3185,7 @@
         ],
         "security": [
           {
-            "bearer": []
+            "bearerAuth": []
           }
         ]
       },
@@ -3232,7 +3232,7 @@
         ],
         "security": [
           {
-            "bearer": []
+            "bearerAuth": []
           }
         ]
       }
@@ -3281,7 +3281,7 @@
         ],
         "security": [
           {
-            "bearer": []
+            "bearerAuth": []
           }
         ]
       }
@@ -3329,7 +3329,7 @@
         ],
         "security": [
           {
-            "bearer": []
+            "bearerAuth": []
           }
         ]
       }
@@ -3384,7 +3384,7 @@
         ],
         "security": [
           {
-            "bearer": []
+            "bearerAuth": []
           }
         ]
       },
@@ -3427,7 +3427,7 @@
         ],
         "security": [
           {
-            "bearer": []
+            "bearerAuth": []
           }
         ]
       }
@@ -3480,7 +3480,7 @@
         ],
         "security": [
           {
-            "bearer": []
+            "bearerAuth": []
           }
         ]
       },
@@ -3541,7 +3541,7 @@
         ],
         "security": [
           {
-            "bearer": []
+            "bearerAuth": []
           }
         ]
       },
@@ -3592,7 +3592,7 @@
         ],
         "security": [
           {
-            "bearer": []
+            "bearerAuth": []
           }
         ]
       }
@@ -3634,7 +3634,7 @@
         ],
         "security": [
           {
-            "bearer": []
+            "bearerAuth": []
           }
         ]
       }
@@ -3676,7 +3676,7 @@
         ],
         "security": [
           {
-            "bearer": []
+            "bearerAuth": []
           }
         ]
       }
@@ -3715,7 +3715,7 @@
         ],
         "security": [
           {
-            "bearer": []
+            "bearerAuth": []
           }
         ]
       }
@@ -3751,7 +3751,7 @@
         ],
         "security": [
           {
-            "bearer": []
+            "bearerAuth": []
           }
         ]
       }
@@ -3809,7 +3809,38 @@
       "description": "Storage related endpoints"
     }
   ],
-  "servers": [],
+  "servers": [
+    {
+      "url": "{scheme}://{domain}:{port}{basePath}",
+      "description": "Supabase Self-hosted Installation API Access",
+      "variables": {
+        "scheme": {
+          "description": "HTTP scheme",
+          "default": "http",
+          "enum": [
+            "http",
+            "https"
+          ]
+        },
+        "domain": {
+          "description": "Supabase IP address or domain",
+          "default": "localhost"
+        },
+        "port": {
+          "description": "Port",
+          "default": "8000"
+        },
+        "basePath": {
+          "description": "Base path",
+          "default": "/"
+        }
+      }
+    },
+    {
+      "url": "https://api.supabase.io",
+      "description": "Supabase Public Cloud API Access"
+    }
+  ],
   "components": {
     "securitySchemes": {
       "bearerAuth": {
@@ -4199,7 +4230,7 @@
           "token_type": {
             "type": "string",
             "enum": [
-              "Bearer"
+              "bearerAuth"
             ]
           },
           "access_token": {
@@ -4811,7 +4842,6 @@
           "name": {
             "type": "string",
             "maxLength": 256,
-            "pattern": "/^(?!SUPABASE_).*/",
             "description": "Secret name must not start with the SUPABASE_ prefix.",
             "example": "BACKEND_SERVICE_"
           },
